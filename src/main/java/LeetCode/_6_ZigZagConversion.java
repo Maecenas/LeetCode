@@ -1,7 +1,7 @@
 package LeetCode;
 
 /*
-https://leetcode.com/problems/zigzag-conversion
+https://leetcode.com/problems/zigzag-conversion/
 Medium. String.
 
 The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows

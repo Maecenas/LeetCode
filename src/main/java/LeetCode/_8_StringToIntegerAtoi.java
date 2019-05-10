@@ -1,7 +1,7 @@
 package LeetCode;
 
 /*
-https://leetcode.com/problems/string-to-integer-atoi
+https://leetcode.com/problems/string-to-integer-atoi/
 Medium. Math, String.
 
 Implement atoi which converts a string to an integer.

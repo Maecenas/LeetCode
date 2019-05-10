@@ -1,7 +1,7 @@
 package LeetCode;
 
 /*
-https://leetcode.com/problems/regular-expression-matching
+https://leetcode.com/problems/regular-expression-matching/
 Hard. String, Dynamic Programming, Backtracking.
 
 Given an input string (s) and a pattern (p), implement regular expression matching
