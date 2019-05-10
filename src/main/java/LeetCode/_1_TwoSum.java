@@ -18,7 +18,7 @@ return [0, 1].
 
 import java.util.HashMap;
 
-class Q0001_TwoSum {
+class _1_TwoSum {
 
     public static int[] twoSum(int[] nums, int target) {
         if (nums == null || nums.length < 2) return new int[0];

@@ -28,7 +28,7 @@ Explanation: The answer is "wke", with the length of 3.
 
 import java.util.Arrays;
 
-class Q0003_LongestSubstringWithoutRepeatingCharacters {
+class _3_LongestSubstringWithoutRepeatingCharacters {
 
     public static int lengthOfLongestSubstring(String s) {
         if (s == null) return 0;

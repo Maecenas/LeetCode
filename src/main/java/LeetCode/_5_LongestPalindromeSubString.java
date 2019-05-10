@@ -19,7 +19,7 @@ Output: "bb"
 
 */
 
-class Q0005_LongestPalindromeSubString {
+class _5_LongestPalindromeSubString {
 
     public static String longestPalindrome(String s) {
         if (s == null || s.length() < 1) return "";

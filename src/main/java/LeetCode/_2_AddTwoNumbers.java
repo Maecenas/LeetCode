@@ -21,7 +21,7 @@ class ListNode {
     ListNode(int x) { val = x; }
 }
 
-class Q0002_AddTwoNumbers {
+class _2_AddTwoNumbers {
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if (l2 == null) return l1;
@@ -56,4 +56,3 @@ class Q0002_AddTwoNumbers {
         return head;
     }
 }
-

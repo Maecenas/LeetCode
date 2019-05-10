@@ -23,7 +23,7 @@ nums2 = [3, 4]
 The median is (2 + 3)/2 = 2.5
 */
 
-class Q0004_MedianOfTwoSortedArrays {
+class _4_MedianOfTwoSortedArrays {
 
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null) return 0.0;
