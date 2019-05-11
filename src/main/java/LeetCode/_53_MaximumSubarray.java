@@ -42,9 +42,7 @@ class _53_MaximumSubarray {
         if (lo > hi) return Integer.MIN_VALUE;
         if (lo == hi) return nums[lo];
 
-        // StackOverflowError
-        // final int mid = lo + (hi - lo) >> 1;
-        final int mid = (lo + hi) >> 1;
+        final int mid = lo + ((hi - lo) >> 1);
         final int L = maxSubArray(nums, lo, mid - 1);
         final int R = maxSubArray(nums, mid + 1, hi);
 

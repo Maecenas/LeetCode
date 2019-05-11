@@ -49,7 +49,7 @@ class _4_MedianOfTwoSortedArrays {
         final int halfLen = (m + n + 1) >> 1;
 
         while (lo <= hi) {
-            i = lo + (hi - lo) >> 1;
+            i = lo + ((hi - lo) >> 1);
             j = halfLen - i;
             if (i < hi && nums2[j - 1] > nums1[i]) {
                 lo = i + 1;
