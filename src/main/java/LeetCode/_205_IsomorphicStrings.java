@@ -31,6 +31,9 @@ Note:
 You may assume both s and t have the same length.
 */
 
+/**
+ * See also {@link _290_WordPattern}
+ */
 class _205_IsomorphicStrings {
 
     private static final int R = 256;  // extended ASCII
