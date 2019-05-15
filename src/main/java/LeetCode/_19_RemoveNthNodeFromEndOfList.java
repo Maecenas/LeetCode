@@ -21,17 +21,9 @@ Follow up:
 Could you do this in one pass?
 */
 
+import LeetCode.utils.ListNode;
+
 class _19_RemoveNthNodeFromEndOfList {
-
-    // Given by question
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null || n <= 0) return head;
