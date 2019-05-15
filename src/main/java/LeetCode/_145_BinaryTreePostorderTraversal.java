@@ -20,6 +20,8 @@ Output: [3,2,1]
 Follow up: Recursive solution is trivial, could you do it iteratively?
 */
 
+import LeetCode.utils.TreeNode;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
@@ -28,17 +30,6 @@ import java.util.Stack;
  * Definition for a binary tree node.
  */
 class _145_BinaryTreePostorderTraversal {
-
-    // Given by question
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public static List<Integer> postorderTraversal(TreeNode root) {
         LinkedList<Integer> list = new LinkedList<>();

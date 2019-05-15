@@ -32,18 +32,9 @@ Google: 90% of our engineers use the software you wrote (Homebrew),
 but you can’t invert a binary tree on a whiteboard so f*** off.
 */
 
+import LeetCode.utils.TreeNode;
+
 class _226_InvertBinaryTree {
-
-    // Given by question
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public static TreeNode invertTree(TreeNode root) {
         if (root == null || (root.left == null && root.right == null)) return root;
