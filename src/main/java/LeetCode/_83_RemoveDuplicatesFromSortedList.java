@@ -17,16 +17,9 @@ Input: 1->1->2->3->3
 Output: 1->2->3
 */
 
+import LeetCode.utils.ListNode;
+
 class _83_RemoveDuplicatesFromSortedList {
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static ListNode deleteDuplicates(ListNode head) {
         if (head == null || head.next == null) return head;

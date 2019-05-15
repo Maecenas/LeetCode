@@ -13,17 +13,9 @@ Input: 1->2->4, 1->3->4
 Output: 1->1->2->3->4->4
 */
 
+import LeetCode.utils.ListNode;
+
 class _21_MergeTwoSortedLists {
-
-    // Given by question
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static ListNode mergeTwoListsRecursively(ListNode l1, ListNode l2) {
         if (l1 == null) return l2;
