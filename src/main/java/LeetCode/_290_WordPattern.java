@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 /**
- * See also {@link _205_IsomorphicStrings}
+ * @see _205_IsomorphicStrings
  */
 class _290_WordPattern {
 

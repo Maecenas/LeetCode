@@ -32,7 +32,7 @@ You may assume both s and t have the same length.
 */
 
 /**
- * See also {@link _290_WordPattern}
+ * @see _290_WordPattern
  */
 class _205_IsomorphicStrings {
 
