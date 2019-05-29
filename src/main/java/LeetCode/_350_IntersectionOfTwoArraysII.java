@@ -44,8 +44,16 @@ class _350_IntersectionOfTwoArraysII {
         if (nums1 == null || nums2 == null) return null;
         else if (nums1.length == 0 || nums2.length == 0) return new int[0];
 
-        HashMap<Integer, Integer> map = new HashMap<>();
         final ArrayList<Integer> arr = new ArrayList<>();
+        final HashMap<Integer, Integer> map = new HashMap<>();
+
+        // make sure nums1 is smaller
+        if (nums2.length > nums1.length) {
+            int[] tmp = nums2;
+            nums2 = nums1;
+            nums1 = tmp;
+        }
+
         for (int num : nums1) {
             //if (map.containsValue(num)) {
             //    map.put(num, map.get(num) + 1);
