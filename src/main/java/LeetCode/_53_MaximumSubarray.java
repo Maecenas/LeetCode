@@ -19,6 +19,9 @@ If you have figured out the O(n) solution,
 try coding another solution using the divide and conquer approach, which is more subtle.
 */
 
+/**
+ * @see _152_MaximumProductSubarray
+ */
 class _53_MaximumSubarray {
 
     public static int maxSubArray(int[] nums) {
