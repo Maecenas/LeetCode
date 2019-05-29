@@ -53,7 +53,7 @@ class _409_LongestPalindrome {
 
         final int[] count = new int[2 * R];
         for (char c : s.toCharArray()) {
-            if (Character.isLowerCase(c))  {
+            if (Character.isLowerCase(c)) {
                 count[c - 'a']++;
             } else {
                 //count[c - 'A' + 26]++;

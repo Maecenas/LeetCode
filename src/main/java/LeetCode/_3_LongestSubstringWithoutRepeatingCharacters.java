@@ -39,7 +39,7 @@ class _3_LongestSubstringWithoutRepeatingCharacters {
         Arrays.fill(p, -1);
 
         int res = 0, left = -1;
-        for(int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             left = Math.max(left, p[chars[i]]);
             p[chars[i]] = i;
             res = Math.max(res, i - left);

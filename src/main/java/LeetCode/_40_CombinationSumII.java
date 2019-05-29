@@ -36,8 +36,6 @@ A solution set is:
 ]
 */
 
-import edu.princeton.cs.algs4.In;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

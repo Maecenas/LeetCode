@@ -49,10 +49,7 @@ What if the matrix is so large that you can only load up a partial row
 into the memory at once?
 */
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
-
 import java.util.LinkedList;
-import java.util.List;
 
 class _766_ToeplitzMatrix {
 

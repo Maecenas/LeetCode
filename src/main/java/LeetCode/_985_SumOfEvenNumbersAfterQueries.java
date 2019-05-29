@@ -36,8 +36,6 @@ Note:
 0 <= queries[i][1] < A.length
 */
 
-import java.util.Arrays;
-
 class _985_SumOfEvenNumbersAfterQueries {
 
     public static int[] sumEvenAfterQueries(int[] A, int[][] queries) {

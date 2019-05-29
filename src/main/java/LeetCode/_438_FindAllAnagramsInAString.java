@@ -58,8 +58,8 @@ class _438_FindAllAnagramsInAString {
 
         while (end < s.length()) {
             char c = s.charAt(end);
-            chars[c  - 'a']--;
-            if (chars[c  - 'a'] >= 0) {
+            chars[c - 'a']--;
+            if (chars[c - 'a'] >= 0) {
                 counter--;
             }
             end++;

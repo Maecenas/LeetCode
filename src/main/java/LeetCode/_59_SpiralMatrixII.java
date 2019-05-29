@@ -18,9 +18,6 @@ Output:
 ]
 */
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 class _59_SpiralMatrixII {
 
     public static int[][] generateMatrix(int n) {

@@ -30,7 +30,6 @@ nums[i] will be an integer between 0 and 49,999.
 */
 
 import java.util.HashMap;
-import java.util.Map;
 
 class _697_DegreeOfAnArray {
 

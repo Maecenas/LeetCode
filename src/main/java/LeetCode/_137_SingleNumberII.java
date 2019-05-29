@@ -75,7 +75,7 @@ class _137_SingleNumberII {
         else if (nums.length < 4) return 0;
 
         int a = 0, b = 0;
-        for(int c : nums){
+        for (int c : nums) {
             b = (b ^ c) & ~a;
             a = (a ^ c) & ~b;
         }

@@ -47,7 +47,7 @@ class _189_RotateArray {
             } while (start != curr);
         }
     }
-    
+
     public static void rotate(int[] nums, int k) {
         if (nums == null || nums.length <= 1 || k <= 0) return;
 

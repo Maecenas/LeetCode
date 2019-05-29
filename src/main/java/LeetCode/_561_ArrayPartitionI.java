@@ -22,7 +22,6 @@ All the integers in the array will be in the range of [-10000, 10000].
 */
 
 import java.util.Arrays;
-import java.util.Random;
 
 class _561_ArrayPartitionI {
 

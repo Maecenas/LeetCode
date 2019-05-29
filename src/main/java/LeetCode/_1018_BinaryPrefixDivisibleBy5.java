@@ -41,7 +41,6 @@ A[i] is 0 or 1
 */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 class _1018_BinaryPrefixDivisibleBy5 {
