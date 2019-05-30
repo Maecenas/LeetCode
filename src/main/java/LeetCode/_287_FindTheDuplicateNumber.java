@@ -90,11 +90,11 @@ class _287_FindTheDuplicateNumber {
             fast = nums[nums[fast]];
         } while (slow != fast);
 
-        int res = nums[0];
-        while (res != slow) {
+        slow = nums[0];
+        while (fast != slow) {
             slow = nums[slow];
-            res = nums[res];
+            fast = nums[fast];
         }
-        return res;
+        return slow;
     }
 }
