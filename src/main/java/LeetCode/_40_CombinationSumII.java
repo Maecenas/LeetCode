@@ -42,6 +42,8 @@ import java.util.List;
 
 /**
  * @see _39_CombinationSum
+ * @see _216_CombinationSumIII
+ * @see _377_CombinationSumIV
  */
 class _40_CombinationSumII {
 

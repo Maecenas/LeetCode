@@ -25,6 +25,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * @see _229_MajorityElementII
+ */
 class _169_MajorityElement {
 
     /**
@@ -173,7 +176,7 @@ class _169_MajorityElement {
                     bits++;
                 }
             }
-            if (bits > nums.length / 2) {
+            if (bits > (nums.length >> 1)) {
                 majority |= mask;
             }
         }
