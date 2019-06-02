@@ -20,6 +20,10 @@ The range of numbers in the array is [-1000, 1000] and the range of the integer 
 
 import java.util.HashMap;
 
+/**
+ * @see _363_MaxSumOfRectangleNoLargerThanK
+ * @see _1074_NumberOfSubmatricesThatSumToTarget
+ */
 class _560_SubarraySumEqualsK {
 
     /**
