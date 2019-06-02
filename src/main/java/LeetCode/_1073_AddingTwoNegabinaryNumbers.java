@@ -51,20 +51,13 @@ class _1073_AddingTwoNegabinaryNumbers {
             // early return
             if (i >= m && i >= n && carry == 0) break;
 
-            // workaround of unexpected result when carry is -1.
-            // actual: -1 % -2 -> -1, -1 / -2 -> 0
-            // expected: -1 = 1 * (-2) + 1
-            if (carry != -1) {
-                digits.add(carry % -2);
-                carry /= -2;
-            } else {
-                digits.add(1);
-                carry = 1;
-            }
+            // carry divmod base (-2)
+            digits.add(carry & 0x1);
+            carry = -(carry >> 1);
         }
 
         // early return
-        if (digits.size() == 0) return new int[0];
+        if (digits.size() == 0) return new int[]{0};
         else if (digits.size() == 1) return new int[]{digits.get(0)};
 
         // remove leading zeroes
