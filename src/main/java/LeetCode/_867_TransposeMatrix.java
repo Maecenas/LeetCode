@@ -33,9 +33,11 @@ class _867_TransposeMatrix {
         final int R = A.length, C = A[0].length;
         final int[][] res = new int[C][R];
 
-        for (int r = 0; r < R; r++)
-            for (int c = 0; c < C; c++)
+        for (int r = 0; r < R; r++) {
+            for (int c = 0; c < C; c++) {
                 res[c][r] = A[r][c];
+            }
+        }
         return res;
     }
 }
