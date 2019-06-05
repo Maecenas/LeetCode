@@ -26,6 +26,13 @@ Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 */
 
+/**
+ * @see _122_BestTimeToBuyAndSellStockII
+ * @see _123_BestTimeToBuyAndSellStockIII
+ * @see _188_BestTimeToBuyAndSellStockIV
+ * @see _309_BestTimeToBuyAndSellStockWithCooldown
+ * @see _714_BestTimeToBuyAndSellStockWithTransactionFee
+ */
 public class _121_BestTimeToBuyAndSellStock {
 
     public static int maxProfit(int[] prices) {

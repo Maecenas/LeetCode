@@ -23,6 +23,7 @@ its corresponding outputs are in the right-hand column.
 /**
  * @see _46_Permutations
  * @see _47_PermutationsII
+ * @see _670_MaximumSwap
  */
 class _31_NextPermutation {
 
