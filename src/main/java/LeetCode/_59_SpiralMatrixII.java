@@ -18,6 +18,10 @@ Output:
 ]
 */
 
+/**
+ * @see _54_SpiralMatrix
+ * @see _885_SpiralMatrixIII
+ */
 class _59_SpiralMatrixII {
 
     public static int[][] generateMatrix(int n) {
