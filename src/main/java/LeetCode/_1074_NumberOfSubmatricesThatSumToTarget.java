@@ -37,7 +37,7 @@ import java.util.HashMap;
  * @see _363_MaxSumOfRectangleNoLargerThanK
  * @see _560_SubarraySumEqualsK
  */
-public class _1074_NumberOfSubmatricesThatSumToTarget {
+class _1074_NumberOfSubmatricesThatSumToTarget {
 
     /**
      * O(m * n^2), O(m)

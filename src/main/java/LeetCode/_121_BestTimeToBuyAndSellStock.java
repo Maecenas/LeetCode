@@ -33,7 +33,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
  * @see _309_BestTimeToBuyAndSellStockWithCooldown
  * @see _714_BestTimeToBuyAndSellStockWithTransactionFee
  */
-public class _121_BestTimeToBuyAndSellStock {
+class _121_BestTimeToBuyAndSellStock {
 
     public static int maxProfit(int[] prices) {
         if (prices == null || prices.length <= 1) return 0;

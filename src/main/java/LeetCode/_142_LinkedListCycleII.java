@@ -37,7 +37,7 @@ Can you solve it without using extra space?
 
 import LeetCode.utils.ListNode;
 
-public class _142_LinkedListCycleII {
+class _142_LinkedListCycleII {
 
     public static ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) return null;
