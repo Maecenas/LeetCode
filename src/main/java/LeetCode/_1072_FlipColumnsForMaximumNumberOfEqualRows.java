@@ -2,7 +2,7 @@ package LeetCode;
 
 /*
 https://leetcode.com/problems/flip-columns-for-maximum-number-of-equal-rows/
-Medium.
+Medium. Hash Table.
 
 Given a matrix consisting of 0s and 1s, we may choose any number of columns
 in the matrix and flip every cell in that column. Flipping a cell changes

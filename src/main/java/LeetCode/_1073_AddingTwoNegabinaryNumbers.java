@@ -2,7 +2,7 @@ package LeetCode;
 
 /*
 https://leetcode.com/problems/adding-two-negabinary-numbers/
-Medium.
+Medium. Math.
 
 Given two numbers arr1 and arr2 in base -2, return the result of adding them together.
 

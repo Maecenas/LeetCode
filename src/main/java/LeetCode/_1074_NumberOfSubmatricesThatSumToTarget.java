@@ -2,7 +2,7 @@ package LeetCode;
 
 /*
 https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/
-Hard.
+Hard. Array, Dynamic Programming, Sliding Window.
 
 Given a matrix, and a target, return the number of non-empty submatrices that sum to target.
 
