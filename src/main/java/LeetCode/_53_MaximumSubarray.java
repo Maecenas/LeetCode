@@ -22,6 +22,7 @@ try coding another solution using the divide and conquer approach, which is more
 /**
  * @see _152_MaximumProductSubarray
  * @see _918_MaximumSumCircularSubarray
+ * @see _978_LongestTurbulentSubarray
  */
 class _53_MaximumSubarray {
 

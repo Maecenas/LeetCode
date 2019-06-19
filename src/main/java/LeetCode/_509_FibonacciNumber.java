@@ -36,6 +36,9 @@ Note:
 0 ≤ N ≤ 30.
 */
 
+/**
+ * @see _873_LengthOfLongestFibonacciSubsequence
+ */
 class _509_FibonacciNumber {
 
     private static final double SQRT_5 = Math.sqrt(5);
