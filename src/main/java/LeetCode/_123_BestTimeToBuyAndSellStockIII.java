@@ -50,13 +50,13 @@ class _123_BestTimeToBuyAndSellStockIII {
         int release1 = 0, release2 = 0;
         // Assume we only have 0 money at first
         for (int p : prices) {
-            // The maximum if we've just sold 2nd stock so far.
+            // The maximum if we've just sold 2nd stock so far
             release2 = Math.max(release2, hold2 + p);
-            // The maximum if we've just buy  2nd stock so far.
+            // The maximum if we've just buy 2nd stock so far
             hold2 = Math.max(hold2, release1 - p);
-            // The maximum if we've just sold 1nd stock so far.
+            // The maximum if we've just sold 1st stock so far
             release1 = Math.max(release1, hold1 + p);
-            // The maximum if we've just buy  1st stock so far.
+            // The maximum if we've just buy 1st stock so far
             hold1 = Math.max(hold1, -p);
         }
         // Since release1 is initiated as 0, release2 will always higher than release1.

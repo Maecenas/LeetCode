@@ -28,11 +28,11 @@ class _907_SumOfSubarrayMinimums {
      * If the modular divisor M is 10^9 + 7
      * It serves mainly three purposes:
      * 1. Fits in the range of int in languages like C/C++.
-     * One doesn't need to deal with overflows when doing addition/subtraction modulo M.
+     *    One doesn't need to deal with overflows when doing addition/subtraction modulo M.
      * 2. M is a prime number.
-     * You can perform division modulo M just by calculating the modular inverse of the divisor.
+     *    You can perform division modulo M just by calculating the modular inverse of the divisor.
      * 3. The square of M fits in 63 bits (size of long long),
-     * so you can perform multiplication modulo M without overflows.
+     *    so you can perform multiplication modulo M without overflows.
      */
     private static final int MOD = (int) (1e9 + 7);
 

@@ -50,7 +50,7 @@ class _985_SumOfEvenNumbersAfterQueries {
 
         final int[] res = new int[queries.length];
 
-        for (int i = 0; i < queries.length; ++i) {
+        for (int i = 0; i < queries.length; i++) {
             int val = queries[i][0], index = queries[i][1];
             if ((A[index] & 0x1) == 0x0) {
                 sumEven -= A[index];
