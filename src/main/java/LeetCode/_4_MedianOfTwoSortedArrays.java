@@ -25,6 +25,9 @@ The median is (2 + 3)/2 = 2.5
 
 class _4_MedianOfTwoSortedArrays {
 
+    /**
+     * O(log(min(m, n))), O(1)
+     */
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null) return 0.0;
 
@@ -70,7 +73,7 @@ class _4_MedianOfTwoSortedArrays {
                     maxLeft = Math.max(nums1[i - 1], nums2[j - 1]);
                 }
                 // (m + n) is odd
-                if (((m + n) & 0x1) == 1) {
+                if (((m + n) & 0x1) == 0x1) {
                     return maxLeft;
                 }
 
