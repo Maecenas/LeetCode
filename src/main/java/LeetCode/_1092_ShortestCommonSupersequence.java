@@ -35,7 +35,7 @@ class _1092_ShortestCommonSupersequence {
         else if (str1.length() == 0) return str2;
         else if (str2.length() == 0) return str1;
 
-        // find LCS (Least Common Substring)
+        // find LCS (Longest Common Subsequence)
         // dp[i + 1][j + 1] = lcs(A[:i], B[:j])
         final int m = str1.length(), n = str2.length();
         final int[][] dp = new int[m + 1][n + 1];
