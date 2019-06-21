@@ -24,6 +24,15 @@ Could you implement it using only constant extra space complexity?
 
 import java.util.Arrays;
 
+/**
+ * @see _41_FirstMissingPositive
+ * @see _136_SingleNumber
+ * @see _137_SingleNumberII
+ * @see _260_SingleNumberIII
+ * @see _268_MissingNumber
+ * @see _287_FindTheDuplicateNumber
+ * @see _645_SetMismatch
+ */
 class _268_MissingNumber {
 
     /**

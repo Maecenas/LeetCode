@@ -4,7 +4,9 @@ package LeetCode;
 https://leetcode.com/problems/single-number/
 Easy. Hash Table, Bit Manipulation.
 
-Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+Given a non-empty array of integers, every
+element appears twice except for one.
+Find that single one.
 
 Note:
 
@@ -22,6 +24,14 @@ Input: [4,1,2,1,2]
 Output: 4
 */
 
+/**
+ * @see _41_FirstMissingPositive
+ * @see _137_SingleNumberII
+ * @see _260_SingleNumberIII
+ * @see _268_MissingNumber
+ * @see _287_FindTheDuplicateNumber
+ * @see _645_SetMismatch
+ */
 class _136_SingleNumber {
 
     public static int singleNumber(int[] nums) {

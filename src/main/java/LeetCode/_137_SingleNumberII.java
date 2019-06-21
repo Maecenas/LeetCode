@@ -4,8 +4,9 @@ package LeetCode;
 https://leetcode.com/problems/single-number-ii/
 Medium. Bit Manipulation.
 
-Given a non-empty array of integers, every element appears three times except for one,
-which appears exactly once. Find that single one.
+Given a non-empty array of integers, every element appears
+three times except for one, which appears exactly once.
+Find that single one.
 
 Note:
 
@@ -23,6 +24,13 @@ Input: [0,1,0,1,0,1,99]
 Output: 99
 */
 
+/**
+ * @see _136_SingleNumber
+ * @see _260_SingleNumberIII
+ * @see _268_MissingNumber
+ * @see _287_FindTheDuplicateNumber
+ * @see _645_SetMismatch
+ */
 class _137_SingleNumberII {
 
     /**
