@@ -26,20 +26,20 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 class _152_MaximumProductSubarray {
 
     public static int maxProduct(int[] nums) {
-        if (nums == null) return 0;
-        else if (nums.length == 0) return nums[0];
+        if (nums == null || nums.length == 0) return 0;
+        else if (nums.length == 1) return nums[0];
 
         int res = Integer.MIN_VALUE, max = 1, min = 1;
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] < 0) {
+        for (int num : nums) {
+            if (num < 0) {
                 int tmp = max;
                 max = min;
                 min = tmp;
             }
             // decouple max and min
-            max = Math.max(nums[i], max * nums[i]);
-            min = Math.min(nums[i], min * nums[i]);
+            max = Math.max(num, max * num);
+            min = Math.min(num, min * num);
             res = Math.max(res, max);
         }
         return res;
