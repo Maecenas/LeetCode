@@ -29,6 +29,9 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
              Total amount you can rob = 2 + 9 + 1 = 12.
 */
 
+/**
+ * @see _152_MaximumProductSubarray
+ */
 class _198_HouseRobber {
 
     public static int rob(int[] nums) {

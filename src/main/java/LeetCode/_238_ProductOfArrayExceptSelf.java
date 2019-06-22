@@ -21,6 +21,10 @@ Could you solve it with constant space complexity?
 for the purpose of space complexity analysis.)
 */
 
+/**
+ * @see _42_TrappingRainWater
+ * @see _152_MaximumProductSubarray
+ */
 class _238_ProductOfArrayExceptSelf {
 
     public static int[] productExceptSelf(int[] nums) {

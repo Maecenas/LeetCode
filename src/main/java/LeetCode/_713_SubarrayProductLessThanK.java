@@ -22,6 +22,10 @@ Note:
 0 <= k < 10^6.
 */
 
+/**
+ * @see _152_MaximumProductSubarray
+ * @see _560_SubarraySumEqualsK
+ */
 class _713_SubarrayProductLessThanK {
 
     public static int numSubarrayProductLessThanK(int[] nums, int k) {

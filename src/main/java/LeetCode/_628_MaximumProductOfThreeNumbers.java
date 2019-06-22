@@ -25,6 +25,9 @@ Multiplication of any three numbers in the input
 won't exceed the range of 32-bit signed integer.
 */
 
+/**
+ * @see _152_MaximumProductSubarray
+ */
 class _628_MaximumProductOfThreeNumbers {
 
     public static int maximumProduct(int[] nums) {

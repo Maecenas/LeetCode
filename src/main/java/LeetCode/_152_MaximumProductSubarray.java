@@ -22,6 +22,10 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 
 /**
  * @see _53_MaximumSubarray
+ * @see _198_HouseRobber
+ * @see _238_ProductOfArrayExceptSelf
+ * @see _628_MaximumProductOfThreeNumbers
+ * @see _713_SubarrayProductLessThanK
  */
 class _152_MaximumProductSubarray {
 
