@@ -19,7 +19,6 @@ Output: 10
 */
 
 import java.util.LinkedList;
-import java.util.Stack;
 
 /**
  * @see _85_MaximalRectangle
@@ -41,7 +40,7 @@ class _84_LargestRectangleInHistogram {
         int res = 0;
         // i == len is included, as we only count to i - 1
         for (int i = 0; i <= len; i++) {
-            int curr = (i == len ? 0 : heights[i]);
+            int curr = (i == len) ? 0 : heights[i];
             while (!stack.isEmpty() && heights[stack.peek()] >= curr) {
                 int height = heights[stack.pop()];
                 // [0, i) or (previous less element, i)
@@ -64,17 +63,7 @@ class _84_LargestRectangleInHistogram {
         // index of the previous/next less element
         final int[] left = new int[len], right = new int[len];
 
-        left[0] = -1;
-        for (int i = 1; i < len; i++) {
-            int idx = i - 1;
-            while (idx >= 0 && heights[idx] >= heights[i]) {
-                idx = left[idx];
-            }
-            left[i] = idx;
-        }
-
-        right[len - 1] = len;
-        for (int i = len - 2; i >= 0; i--) {
+        for (int i = len - 1; i >= 0; i--) {
             int idx = i + 1;
             while (idx < len && heights[idx] >= heights[i]) {
                 idx = right[idx];
@@ -82,9 +71,28 @@ class _84_LargestRectangleInHistogram {
             right[i] = idx;
         }
 
+        // Combine finding left (previous less element) with calculating area
+        //for (int i = 0; i < len; i++) {
+        //    int idx = i - 1;
+        //    while (idx >= 0 && heights[idx] >= heights[i]) {
+        //        idx = left[idx];
+        //    }
+        //    left[i] = idx;
+        //    // height * (left[i], right[i])
+        //    res = Math.max(res, heights[i] * (right[i] - left[i] - 1));
+        //}
+
+        for (int i = 0; i < len; i++) {
+            int idx = i - 1;
+            while (idx >= 0 && heights[idx] >= heights[i]) {
+                idx = left[idx];
+            }
+            left[i] = idx;
+        }
+
         int res = 0;
         for (int i = 0; i < len; i++) {
-            // height * (left[i], right[i])
+            // height * (left[i], right[i]) (open interval)
             res = Math.max(res, heights[i] * (right[i] - left[i] - 1));
         }
         return res;
