@@ -27,24 +27,28 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * @see _144_BinaryTreePreorderTraversal
+ * @see _145_BinaryTreePostorderTraversal
+ */
 class _94_BinaryTreeInorderTraversal {
 
-    public static List<Integer> inorderTraversal(TreeNode root) {
+    public static List<Integer> inorderTraversal(TreeNode node) {
         final List<Integer> list = new ArrayList<>();
-        if (root == null) return list;
+        if (node == null) return list;
 
-        list.addAll(inorderTraversal(root.left));
-        list.add(root.val);
-        list.addAll(inorderTraversal(root.right));
+        list.addAll(inorderTraversal(node.left));
+        list.add(node.val);
+        list.addAll(inorderTraversal(node.right));
         return list;
     }
 
-    public static List<Integer> inorderTraversal2(TreeNode root) {
-        final List<Integer> list = new LinkedList<>();
-        if (root == null) return list;
+    public static List<Integer> inorderTraversal2(TreeNode node) {
+        final List<Integer> list = new ArrayList<>();
+        if (node == null) return list;
 
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode curr = root;
+        TreeNode curr = node;
 
         while (curr != null || !stack.isEmpty()) {
             if (curr != null) {

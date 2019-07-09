@@ -22,21 +22,34 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 
 import LeetCode.utils.TreeNode;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
 /**
- * Definition for a binary tree node.
+ * @see _94_BinaryTreeInorderTraversal
+ * @see _144_BinaryTreePreorderTraversal
  */
 class _145_BinaryTreePostorderTraversal {
 
-    public static List<Integer> postorderTraversal(TreeNode root) {
+    public static List<Integer> postorderTraversal(TreeNode node) {
+        if (node == null) return new ArrayList<>();
+
+        final ArrayList<Integer> res = new ArrayList<>();
+
+        res.addAll(postorderTraversal(node.left));
+        res.addAll(postorderTraversal(node.right));
+        res.add(node.val);
+        return res;
+    }
+
+    public static List<Integer> postorderTraversal2(TreeNode node) {
         LinkedList<Integer> list = new LinkedList<>();
-        if (root == null) return list;
+        if (node == null) return list;
 
         Stack<TreeNode> stack = new Stack<>();
-        TreeNode curr = root;
+        TreeNode curr = node;
 
         while (curr != null || !stack.isEmpty()) {
             if (curr != null) {
