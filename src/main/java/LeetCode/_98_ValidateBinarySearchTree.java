@@ -40,6 +40,7 @@ import java.util.LinkedList;
 
 /**
  * @see _94_BinaryTreeInorderTraversal
+ * @see _501_FindModeInBinarySearchTree
  */
 class _98_ValidateBinarySearchTree {
 
