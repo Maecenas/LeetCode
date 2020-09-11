@@ -129,8 +129,37 @@ class _621_TaskScheduler {
         int slots = max * n;
         for (int i = R - 2; i >= 0 && map[i] > 0; i--) {
             slots -= Math.min(map[i], max);
-            if (slots < 0) break;
+            if (slots <= 0) break;
         }
         return slots > 0 ? slots + tasks.length : tasks.length;
+    }
+
+    /**
+     * O(n), O(1)
+     * Math, Fastest
+     */
+    public static int leastInterval4(char[] tasks, int n) {
+        if (tasks == null || tasks.length == 0) return 0;
+
+        final int[] map = new int[R];
+        for (char task : tasks) {
+            map[task - 'A']++;
+        }
+
+        // max frequency
+        int f_max = 0;
+        for (int f : map) {
+            f_max = Math.max(f_max, f);
+        }
+
+        // count the most frequent tasks
+        int n_max = 0;
+        for (int f : map) {
+            if (f == f_max) {
+                n_max++;
+            }
+        }
+
+        return Math.max(tasks.length, (f_max - 1) * (n + 1) + n_max);
     }
 }

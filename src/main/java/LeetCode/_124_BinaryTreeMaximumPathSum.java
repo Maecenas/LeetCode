@@ -54,7 +54,9 @@ class _124_BinaryTreeMaximumPathSum {
         if (node == null) return 0;
         int left = Math.max(0, maxPathDown(node.left));
         int right = Math.max(0, maxPathDown(node.right));
+        // new path sum where node is the highest node
         maxValue = Math.max(maxValue, left + right + node.val);
+        // max sum of the half way path
         return Math.max(left, right) + node.val;
     }
 }

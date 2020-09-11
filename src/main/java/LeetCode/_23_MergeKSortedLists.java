@@ -52,12 +52,13 @@ class _23_MergeKSortedLists {
         //final PriorityQueue<ListNode> pq = new PriorityQueue<>((l1, l2) -> l1.val - l2.val);
         final PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparingInt(node -> node.val));
 
-        ListNode curr = head;
         for (ListNode node : lists) {
             if (node != null) {
                 pq.offer(node);
             }
         }
+
+        ListNode curr = head;
         while (!pq.isEmpty()) {
             curr.next = pq.poll();
             curr = curr.next;
