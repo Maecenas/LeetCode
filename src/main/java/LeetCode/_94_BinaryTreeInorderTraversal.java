@@ -22,10 +22,10 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 
 import LeetCode.utils.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * @see _144_BinaryTreePreorderTraversal
@@ -47,18 +47,17 @@ class _94_BinaryTreeInorderTraversal {
         final List<Integer> list = new ArrayList<>();
         if (node == null) return list;
 
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode curr = node;
+        Deque<TreeNode> stack = new ArrayDeque<>();
 
-        while (curr != null || !stack.isEmpty()) {
-            if (curr != null) {
-                stack.push(curr);
-                curr = curr.left;
+        while (node != null || !stack.isEmpty()) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
             } else {
-                curr = stack.pop();
+                node = stack.pop();
                 // Add after all left children
-                list.add(curr.val);
-                curr = curr.right;
+                list.add(node.val);
+                node = node.right;
             }
         }
         return list;

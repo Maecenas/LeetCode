@@ -1,7 +1,7 @@
 package LeetCode.utils;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class TreeNode {
 
@@ -21,7 +21,7 @@ public class TreeNode {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("[");
-        final Queue<TreeNode> q = new LinkedList<>();
+        final Deque<TreeNode> q = new ArrayDeque<>();
         q.offer(this);
         TreeNode temp;
         while (!q.isEmpty()) {

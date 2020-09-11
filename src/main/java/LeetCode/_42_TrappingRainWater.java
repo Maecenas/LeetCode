@@ -19,7 +19,8 @@ Input: [0,1,0,2,1,0,1,3,2,1,2,1]
 Output: 6
 */
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * @see _11_ContainerWithMostWater
@@ -86,13 +87,13 @@ class _42_TrappingRainWater {
         if (height == null || height.length < 3) return 0;
 
         // minimum value so far (decreasing stack)
-        final Stack<Integer> stack = new Stack<>();
+        final Deque<Integer> stack = new ArrayDeque<>();
 
         int res = 0;
         for (int i = 0; i < height.length; i++) {
-            while (!stack.empty() && height[i] > height[stack.peek()]) {
+            while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
                 int top = stack.pop();
-                if (stack.empty()) break;
+                if (stack.isEmpty()) break;
                 int width = i - stack.peek() - 1;
                 int minHeight = Math.min(height[i], height[stack.peek()]) - height[top];
                 res += width * minHeight;
