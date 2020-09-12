@@ -39,13 +39,15 @@ obj.remove(key);
 boolean param_3 = obj.contains(key);
 */
 
+/**
+ * @see _706_DesignHashMap
+ */
 class _705_DesignHashSet {
-
-    private static final int R = 1000000;  // max range
 
     static class MyHashSet {
 
-        int[] arr;
+        private static final int R = 1000000;  // max range
+        private final int[] arr;
 
         /**
          * Initialize your data structure here.

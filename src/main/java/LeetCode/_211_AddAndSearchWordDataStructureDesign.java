@@ -34,7 +34,7 @@ class _211_AddAndSearchWordDataStructureDesign {
         private static final int R = 26;  // lowercase letters
         private static final int WILDCARD = '.' - 'a';
 
-        static class TrieNode {
+        private static class TrieNode {
             TrieNode[] next = new TrieNode[R];
             boolean isWord = false;
 

@@ -41,23 +41,32 @@ int param_2 = obj.get(key);
 obj.remove(key);
 */
 
+/**
+ * @see _705_DesignHashSet
+ */
 class _706_DesignHashMap {
-
-    private static final int R = 10000;  // number of buckets
 
     static class MyHashMap {
 
-        static class ListNode {
+        private static class Node {
             int key, val;
-            ListNode next;
+            Node next;
 
-            ListNode(int key, int val) {
+            Node(int key, int val) {
                 this.key = key;
                 this.val = val;
             }
         }
 
-        final ListNode[] nodes = new ListNode[R];
+        private static final int R = 10000;  // number of buckets
+        private final Node[] nodes;
+
+        /**
+         * Initialize your data structure here.
+         */
+        public MyHashMap() {
+            nodes = new Node[R];
+        }
 
         /**
          * value will always be non-negative.
@@ -65,11 +74,11 @@ class _706_DesignHashMap {
         public void put(int key, int value) {
             int i = hash(key);
             if (nodes[i] == null) {
-                nodes[i] = new ListNode(-1, -1);
+                nodes[i] = new Node(-1, -1);
             }
-            ListNode prev = find(nodes[i], key);
+            Node prev = find(nodes[i], key);
             if (prev.next == null) {
-                prev.next = new ListNode(key, value);
+                prev.next = new Node(key, value);
             } else {
                 prev.next.val = value;
             }
@@ -83,7 +92,7 @@ class _706_DesignHashMap {
             if (nodes[i] == null) {
                 return -1;
             }
-            ListNode node = find(nodes[i], key);
+            Node node = find(nodes[i], key);
             return node.next == null ? -1 : node.next.val;
         }
 
@@ -93,7 +102,7 @@ class _706_DesignHashMap {
         public void remove(int key) {
             int i = hash(key);
             if (nodes[i] == null) return;
-            ListNode prev = find(nodes[i], key);
+            Node prev = find(nodes[i], key);
             if (prev.next == null) return;
             prev.next = prev.next.next;
         }
@@ -102,8 +111,8 @@ class _706_DesignHashMap {
             return Integer.hashCode(key) % R;
         }
 
-        ListNode find(ListNode bucket, int key) {
-            ListNode node = bucket, prev = null;
+        Node find(Node bucket, int key) {
+            Node node = bucket, prev = null;
             while (node != null && node.key != key) {
                 prev = node;
                 node = node.next;
