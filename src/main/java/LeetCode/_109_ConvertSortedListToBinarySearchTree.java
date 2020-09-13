@@ -29,6 +29,7 @@ import LeetCode.utils.ListNode;
 import LeetCode.utils.TreeNode;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @see _108_ConvertSortedArrayToBinarySearchTree
@@ -78,12 +79,12 @@ class _109_ConvertSortedListToBinarySearchTree {
         if (head == null) return null;
         else if (head.next == null) return new TreeNode(head.val);
 
-        final ArrayList<Integer> nums = convertLinkedListToArray(head);
+        final List<Integer> nums = convertLinkedListToArray(head);
         return convertListToBST(nums, 0, nums.size() - 1);
     }
 
-    private static ArrayList<Integer> convertLinkedListToArray(ListNode head) {
-        final ArrayList<Integer> res = new ArrayList<>();
+    private static List<Integer> convertLinkedListToArray(ListNode head) {
+        final List<Integer> res = new ArrayList<>();
         while (head != null) {
             res.add(head.val);
             head = head.next;
@@ -91,7 +92,7 @@ class _109_ConvertSortedListToBinarySearchTree {
         return res;
     }
 
-    private static TreeNode convertListToBST(final ArrayList<Integer> nums, int lo, int hi) {
+    private static TreeNode convertListToBST(final List<Integer> nums, int lo, int hi) {
         if (lo > hi) return null;
         else if (lo == hi) return new TreeNode(nums.get(lo));
 

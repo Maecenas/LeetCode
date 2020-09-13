@@ -32,8 +32,8 @@ Note:
 grid[i][j] is 0 or 1
 */
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class _1091_ShortestPathInBinaryMatrix {
 
@@ -46,7 +46,7 @@ class _1091_ShortestPathInBinaryMatrix {
         // early return
         if (grid[0][0] != 0 || grid[n - 1][n - 1] != 0) return -1;
 
-        final Queue<int[]> q = new LinkedList<>();
+        final Deque<int[]> q = new ArrayDeque<>();
         q.add(new int[]{0, 0});
 
         int res = 0;

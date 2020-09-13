@@ -22,10 +22,10 @@ Follow up: Recursive solution is trivial, could you do it iteratively?
 
 import LeetCode.utils.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 /**
  * @see _94_BinaryTreeInorderTraversal
@@ -36,7 +36,7 @@ class _145_BinaryTreePostorderTraversal {
     public static List<Integer> postorderTraversal(TreeNode node) {
         if (node == null) return new ArrayList<>();
 
-        final ArrayList<Integer> res = new ArrayList<>();
+        final List<Integer> res = new ArrayList<>();
 
         res.addAll(postorderTraversal(node.left));
         res.addAll(postorderTraversal(node.right));
@@ -45,16 +45,16 @@ class _145_BinaryTreePostorderTraversal {
     }
 
     public static List<Integer> postorderTraversal2(TreeNode node) {
-        LinkedList<Integer> list = new LinkedList<>();
+        List<Integer> list = new ArrayList<>();
         if (node == null) return list;
 
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         TreeNode curr = node;
 
         while (curr != null || !stack.isEmpty()) {
             if (curr != null) {
                 stack.push(curr);
-                list.addFirst(curr.val);  // Reverse the process of post-order
+                list.add(0, curr.val);  // Reverse the process of post-order
                 curr = curr.right;        // Reverse the process of post-order
             } else {
                 curr = stack.pop().left;  // Reverse the process of post-order

@@ -43,9 +43,9 @@ Note:
 A[i] != A[j] for all i != j
 */
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.LinkedList;
 
 class _950_RevealCardsInIncreasingOrder {
 
@@ -58,7 +58,7 @@ class _950_RevealCardsInIncreasingOrder {
         final int N = deck.length;
         final int[] res = new int[N];
 
-        final Deque<Integer> index = new LinkedList<>();
+        final Deque<Integer> index = new ArrayDeque<>();
         for (int i = 0; i < N; i++) index.add(i);
 
         for (int card : deck) {

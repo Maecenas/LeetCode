@@ -23,8 +23,8 @@ The length of words will be in the range of [1, 5000].
 The length of words[i] will be in the range of [1, 50].
 */
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class _792_NumberOfMatchingSubsequences {
 
@@ -33,12 +33,12 @@ class _792_NumberOfMatchingSubsequences {
     public static int numMatchingSubseq(String S, String[] words) {
         if (S == null || words == null || S.length() == 0 || words.length == 0) return 0;
 
-        final Queue<String>[] map = new Queue[R];
+        final Deque<String>[] map = new Deque[R];
         final char[] text = S.toCharArray();
 
         for (char c : text) {
             if (map[c - 'a'] == null) {
-                map[c - 'a'] = new LinkedList<>();
+                map[c - 'a'] = new ArrayDeque<>();
             }
         }
 
@@ -51,7 +51,7 @@ class _792_NumberOfMatchingSubsequences {
 
         int res = 0;
         for (char c : text) {
-            Queue<String> q = map[c - 'a'];
+            Deque<String> q = map[c - 'a'];
             for (int k = q.size() - 1; k >= 0; k--) {
                 String str = q.poll();
                 if (str == null) continue;

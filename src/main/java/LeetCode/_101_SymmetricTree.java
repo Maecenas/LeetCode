@@ -29,8 +29,8 @@ Bonus points if you could solve it both recursively and iteratively.
 
 import LeetCode.utils.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class _101_SymmetricTree {
 
@@ -49,7 +49,7 @@ class _101_SymmetricTree {
     public static boolean isSymmetric2(TreeNode root) {
         if (root == null || (root.left == null && root.right == null)) return true;
 
-        final Queue<TreeNode> q = new LinkedList<>();
+        final Deque<TreeNode> q = new ArrayDeque<>();
         q.add(root);
         q.add(root);
         while (!q.isEmpty()) {

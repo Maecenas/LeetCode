@@ -40,11 +40,11 @@ Note:
 1 <= num_wanted, use_limit <= values.length
 */
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.PriorityQueue;
-import java.util.Queue;
 import java.util.TreeMap;
 
 class _1090_LargestValuesFromLabels {
@@ -56,18 +56,18 @@ class _1090_LargestValuesFromLabels {
 
         final int len = values.length;
 
-        TreeMap<Integer, Queue<Integer>> map = new TreeMap<>();
+        TreeMap<Integer, Deque<Integer>> map = new TreeMap<>();
         final HashMap<Integer, Integer> count = new HashMap<>();
 
         for (int i = 0; i < len; i++) {
-            map.putIfAbsent(values[i], new LinkedList<>());
+            map.putIfAbsent(values[i], new ArrayDeque<>());
             map.get(values[i]).offer(labels[i]);
         }
 
         int res = 0, num = 0;
         while (num < num_wanted) {
             if (map.isEmpty()) return res;
-            Map.Entry<Integer, Queue<Integer>> entry = map.lastEntry();
+            Map.Entry<Integer, Deque<Integer>> entry = map.lastEntry();
             int key = entry.getKey();
             if (entry.getValue().isEmpty()) {
                 map.remove(key);

@@ -30,7 +30,8 @@ Note:
 text consists of lowercase English letters.
 */
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class _1081_SmallestSubsequenceOfDistinctCharacters {
 
@@ -40,7 +41,7 @@ class _1081_SmallestSubsequenceOfDistinctCharacters {
         if (text == null || text.length() == 0) return "";
 
         final char[] chars = text.toCharArray();
-        final Stack<Integer> stack = new Stack<>();
+        final Deque<Integer> stack = new ArrayDeque<>();
         final int[] last = new int[R];
         final boolean[] marked = new boolean[R];
 

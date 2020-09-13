@@ -27,10 +27,10 @@ return its level order traversal as:
 
 import LeetCode.utils.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Deque;
 import java.util.List;
-import java.util.Queue;
 
 /**
  * @see _103_BinaryTreeZigzagLevelOrderTraversal
@@ -42,7 +42,7 @@ class _102_BinaryTreeLevelOrderTraversal {
         if (root == null) return new ArrayList<>();
 
         final List<List<Integer>> res = new ArrayList<>();
-        final Queue<TreeNode> queue = new LinkedList<>();
+        final Deque<TreeNode> queue = new ArrayDeque<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
             List<Integer> list = new ArrayList<>();

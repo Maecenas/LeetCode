@@ -36,7 +36,8 @@ Explanation: The root node's value is 5 but its right child's value is 4.
 
 import LeetCode.utils.TreeNode;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * @see _94_BinaryTreeInorderTraversal
@@ -65,8 +66,8 @@ class _98_ValidateBinarySearchTree {
     public static boolean isValidBST2(TreeNode root) {
         if (root == null || (root.left == null && root.right == null)) return true;
 
-        final LinkedList<TreeNode> stack = new LinkedList<>();
-        final LinkedList<Integer> uppers = new LinkedList<>(), lowers = new LinkedList<>();
+        final Deque<TreeNode> stack = new ArrayDeque<>();
+        final Deque<Integer> uppers = new ArrayDeque<>(), lowers = new ArrayDeque<>();
 
         Integer lower = null, upper = null, val;
         stack.add(root);

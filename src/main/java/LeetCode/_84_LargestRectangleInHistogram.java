@@ -18,7 +18,8 @@ Input: [2,1,5,6,2,3]
 Output: 10
 */
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * @see _85_MaximalRectangle
@@ -35,7 +36,7 @@ class _84_LargestRectangleInHistogram {
         final int len = heights.length;
         // increasing stack to find the previous less element
         // LinkedList implementation is sometimes faster then Stack
-        final LinkedList<Integer> stack = new LinkedList<>();
+        final Deque<Integer> stack = new ArrayDeque<>();
 
         int res = 0;
         // i == len is included, as we only count to i - 1

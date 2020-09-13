@@ -29,8 +29,8 @@ Note:
 0 <= A[i] <= 50000
 */
 
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 class _962_MaximumWidthRamp {
 
@@ -40,7 +40,7 @@ class _962_MaximumWidthRamp {
         final int len = A.length;
         // LinkedList implementation is sometimes faster then Stack
         // minimum value so far (decreasing stack)
-        final LinkedList<Integer> min = new LinkedList<>();
+        final Deque<Integer> min = new ArrayDeque<>();
         for (int i = 0; i < len; i++) {
             if (min.isEmpty() || A[min.peekLast()] > A[i]) {
                 min.addLast(i);

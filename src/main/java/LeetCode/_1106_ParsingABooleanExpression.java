@@ -45,8 +45,9 @@ Hint 1:
 Write a function "parse" which calls helper functions "parse_or", "parse_and", "parse_not".
 */
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashSet;
-import java.util.LinkedList;
 
 class _1106_ParsingABooleanExpression {
 
@@ -54,7 +55,7 @@ class _1106_ParsingABooleanExpression {
         if (expression == null || expression.length() == 0) return false;
 
         final HashSet<Character> set = new HashSet<>();
-        final LinkedList<Character> stack = new LinkedList<>();
+        final Deque<Character> stack = new ArrayDeque<>();
 
         for (char c : expression.toCharArray()) {
             if (c == ')') {

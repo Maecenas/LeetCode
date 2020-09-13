@@ -57,10 +57,11 @@ expression[i] consists of '{', '}', ','or lowercase English letters.
 The given expression represents a set of words based on the grammar given in the description.
 */
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.List;
-import java.util.Stack;
 
 class _1096_BraceExpansionII {
 
@@ -74,7 +75,7 @@ class _1096_BraceExpansionII {
     private static List<String> braceExpansionII(final char[] chars, int start, int end) {
         char preSign = ',';
         // Save List<String>
-        final Stack<List<String>> stack = new Stack<>();
+        final Deque<List<String>> stack = new ArrayDeque<>();
         for (int i = start; i < end; i++) {
             char c = chars[i];
             // case 1: {...} recursive, stack.operate(resList) by preSign

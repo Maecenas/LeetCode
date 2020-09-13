@@ -26,12 +26,12 @@ Note:
 0 <= B[i] <= 10^9
 */
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.PriorityQueue;
-import java.util.Queue;
 import java.util.TreeMap;
 
 class _870_AdvantageShuffle {
@@ -54,13 +54,13 @@ class _870_AdvantageShuffle {
         Arrays.sort(sortedB);
 
         // assigned[b] = A's elements that are assigned to beat b
-        final HashMap<Integer, Queue<Integer>> assigned = new HashMap<>();
+        final HashMap<Integer, Deque<Integer>> assigned = new HashMap<>();
         for (int b : B) {
-            assigned.putIfAbsent(b, new LinkedList<>());
+            assigned.putIfAbsent(b, new ArrayDeque<>());
         }
 
         // remaining = A's element that are not assigned to any b
-        final Queue<Integer> remained = new LinkedList<>();
+        final Deque<Integer> remained = new ArrayDeque<>();
 
         // populate (assigned, remaining) appropriately
         // sortedB[j] is always the smallest unassigned element in B

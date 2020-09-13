@@ -42,15 +42,15 @@ class _1104_PathInZigzagLabelledBinaryTree {
     public static List<Integer> pathInZigZagTree(int label) {
         if (label < 1) return new LinkedList<>();
 
-        final LinkedList<Integer> res = new LinkedList<>();
+        final List<Integer> res = new LinkedList<>();
         int parent = label;
-        res.addFirst(parent);
+        res.add(0, parent);
 
         while (parent != 1) {
             int depth = (int) (Math.log(parent) / LOG_2);
             int offset = ((int) Math.pow(2, depth + 1)) - 1 - parent;
             parent = ((int) (Math.pow(2, depth) + offset)) >> 1;
-            res.addFirst(parent);
+            res.add(0, parent);
         }
 
         return res;

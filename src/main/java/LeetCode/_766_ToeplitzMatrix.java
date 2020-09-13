@@ -50,6 +50,7 @@ into the memory at once?
 */
 
 import java.util.LinkedList;
+import java.util.List;
 
 class _766_ToeplitzMatrix {
 
@@ -84,7 +85,7 @@ class _766_ToeplitzMatrix {
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) return true;
 
         final int R = matrix.length, C = matrix[0].length;
-        final LinkedList<Integer> prev = new LinkedList<>();
+        final List<Integer> prev = new LinkedList<>();
         for (int c = 0; c < C; c++) {
             prev.add(matrix[0][c]);
         }
@@ -93,8 +94,8 @@ class _766_ToeplitzMatrix {
             for (int c = 1; c < C; c++) {
                 if (prev.get(c - 1) != row[c]) return false;
             }
-            prev.removeLast();
-            prev.addFirst(row[0]);
+            prev.remove(prev.size() - 1);
+            prev.add(0, row[0]);
         }
         return true;
     }

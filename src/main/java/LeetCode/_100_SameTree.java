@@ -42,8 +42,8 @@ Output: false
 
 import LeetCode.utils.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.LinkedList;
 
 class _100_SameTree {
 
@@ -59,7 +59,7 @@ class _100_SameTree {
         if (p == null && q == null) return true;
         if (isInvalid(p, q)) return false;
 
-        final Deque<TreeNode> deqP = new LinkedList<>(), deqQ = new LinkedList<>();
+        final Deque<TreeNode> deqP = new ArrayDeque<>(), deqQ = new ArrayDeque<>();
         deqP.addLast(p);
         deqQ.addLast(q);
 

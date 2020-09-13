@@ -40,9 +40,10 @@ Input: "{[]}"
 Output: true
 */
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 
 class _20_ValidParentheses {
 
@@ -57,10 +58,10 @@ class _20_ValidParentheses {
     public static boolean isValid(String s) {
         if (s == null) return false;
 
-        Stack<Character> stack = new Stack<>();
+        final Deque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
             if (PAIR.containsKey(c)) {
-                if (stack.empty() || stack.pop() != PAIR.get(c)) {
+                if (stack.isEmpty() || stack.pop() != PAIR.get(c)) {
                     return false;
                 }
             } else {

@@ -67,10 +67,10 @@ The Graph is connected and all nodes can be visited
 starting from the given node.
 */
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
-import java.util.LinkedList;
 import java.util.List;
 
 class _133_CloneGraph {
@@ -140,7 +140,7 @@ class _133_CloneGraph {
     private static Node cloneGraphBFS(Node root) {
         if (root == null) return root;
 
-        final Deque<Node> queue = new LinkedList<>();
+        final Deque<Node> queue = new ArrayDeque<>();
         nodes[root.val] = new Node(root.val);
         queue.add(root);
         Node n, nClone, clone;
