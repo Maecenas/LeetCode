@@ -30,6 +30,7 @@ import java.util.List;
 /**
  * @see _144_BinaryTreePreorderTraversal
  * @see _145_BinaryTreePostorderTraversal
+ * @see _173_BinarySearchTreeIterator.BSTIteratorMorris
  */
 class _94_BinaryTreeInorderTraversal {
 
@@ -61,5 +62,51 @@ class _94_BinaryTreeInorderTraversal {
             }
         }
         return list;
+    }
+
+    /**
+     * Morris Traversal
+     * O(n), O(1)
+     */
+    public static List<Integer> inorderTraversalMorris(TreeNode node) {
+        if (node == null) return new ArrayList<>();
+
+        final List<Integer> res = new ArrayList<>();
+        TreeNode tourist = node, guide;
+        while (tourist != null) {
+            guide = tourist.left;
+            if (tourist.left != null) {
+                while (guide.right != null && guide.right != tourist) {
+                    guide = guide.right;
+                }
+                if (guide.right == null) {
+                    guide.right = tourist;
+                    tourist = tourist.left;
+                } else /* if (guide.right == tourist) */ {
+                    guide.right = null;
+                    res.add(tourist.val);
+                    tourist = tourist.right;
+                }
+            } else {
+                res.add(tourist.val);
+                tourist = tourist.right;
+            }
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(9);
+        root.left = new TreeNode(5);
+        root.left.left = new TreeNode(3);
+        root.left.left.right = new TreeNode(4);
+        root.left.right = new TreeNode(7);
+        root.left.right.left = new TreeNode(6);
+        root.right = new TreeNode(11);
+        root.right.left = new TreeNode(10);
+
+        System.out.println("inorderTraversal(root) = " + inorderTraversal(root));
+        System.out.println("inorderTraversal2(root) = " + inorderTraversal2(root));
+        System.out.println("inorderTraversalMorris(root) = " + inorderTraversalMorris(root));
     }
 }

@@ -36,6 +36,9 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.List;
 
+/**
+ * @see _94_BinaryTreeInorderTraversal#inorderTraversalMorris
+ */
 class _173_BinarySearchTreeIterator {
 
     /**
@@ -71,6 +74,9 @@ class _173_BinarySearchTreeIterator {
         }
     }
 
+    /**
+     * O(n), O(h)
+     */
     static class BSTIterator2 {
 
         TreeNode node;
@@ -107,6 +113,54 @@ class _173_BinarySearchTreeIterator {
          */
         public boolean hasNext() {
             return node != null || !stack.isEmpty();
+        }
+    }
+
+    /**
+     * Morris Traversal
+     * O(n), O(1)
+     */
+    static class BSTIteratorMorris {
+
+        // next node to visit
+        TreeNode node;
+
+        public BSTIteratorMorris(TreeNode root) {
+            node = morris(root);
+        }
+
+        private static TreeNode morris(TreeNode node) {
+            TreeNode left;
+            while (node != null) {
+                left = node.left;
+                if (left != null) {
+                    while (left.right != null && left.right != node) {
+                        left = left.right;
+                    }
+                    if (left.right == null) {
+                        left.right = node;
+                        node = node.left;
+                    } else /* if (left.right == root) */ {
+                        left.right = null;
+                        return node;
+                    }
+                } else {
+                    return node;
+                }
+            }
+            return null;
+        }
+
+        public int next() {
+            if (!hasNext()) return -1;
+
+            int val = node.val;
+            node = morris(node.right);
+            return val;
+        }
+
+        public boolean hasNext() {
+            return node != null;
         }
     }
 }
