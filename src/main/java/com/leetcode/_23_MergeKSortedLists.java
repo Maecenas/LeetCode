@@ -26,7 +26,7 @@ import java.util.PriorityQueue;
 class _23_MergeKSortedLists {
 
     // temporary ListNode created only once
-    private static final ListNode head = new ListNode(0);
+    private static final ListNode dummy = new ListNode(-1);
 
     /**
      * O(nlogk), O(n) / O(k), where:
@@ -58,7 +58,7 @@ class _23_MergeKSortedLists {
             }
         }
 
-        ListNode curr = head;
+        ListNode curr = dummy;
         while (!pq.isEmpty()) {
             curr.next = pq.poll();
             curr = curr.next;
@@ -66,7 +66,7 @@ class _23_MergeKSortedLists {
                 pq.offer(curr.next);
             }
         }
-        return head.next;
+        return dummy.next;
     }
 
     /**
@@ -96,7 +96,7 @@ class _23_MergeKSortedLists {
         if (l1 == null) return l2;
         if (l2 == null) return l1;
 
-        ListNode curr = head;
+        ListNode curr = dummy;
 
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {
@@ -113,6 +113,6 @@ class _23_MergeKSortedLists {
         } else {
             curr.next = l2;
         }
-        return head.next;
+        return dummy.next;
     }
 }

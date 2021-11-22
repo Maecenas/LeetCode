@@ -34,7 +34,7 @@ class _21_MergeTwoSortedLists {
         if (l1 == null) return l2;
         if (l2 == null) return l1;
 
-        ListNode head = new ListNode(-1), curr = head;
+        ListNode dummy = new ListNode(-1), curr = dummy;
 
         while (l1 != null && l2 != null) {
             if (l1.val <= l2.val) {
@@ -51,6 +51,6 @@ class _21_MergeTwoSortedLists {
         } else {
             curr.next = l2;
         }
-        return head.next;
+        return dummy.next;
     }
 }

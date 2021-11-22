@@ -37,6 +37,9 @@ Can you solve it without using extra space?
 
 import com.leetcode.utils.ListNode;
 
+/**
+ * @see _141_LinkedListCycle
+ */
 class _142_LinkedListCycleII {
 
     public static ListNode detectCycle(ListNode head) {
@@ -49,6 +52,26 @@ class _142_LinkedListCycleII {
             fast = fast.next.next;
             if (fast == null || fast.next == null) return null;
         } while (slow != fast);
+
+        // Math proof: head -> entry == fast -> entry
+        slow = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow;
+    }
+
+    public static ListNode detectCycle2(ListNode head) {
+        if (head == null || head.next == null) return null;
+
+        ListNode slow = head, fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) break;
+        }
 
         // Math proof: head -> entry == fast -> entry
         slow = head;

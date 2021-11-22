@@ -35,6 +35,9 @@ Can you solve it using O(1) (i.e. constant) memory?
 
 import com.leetcode.utils.ListNode;
 
+/**
+ * @see _142_LinkedListCycleII
+ */
 class _141_LinkedListCycle {
 
     public static boolean hasCycle(ListNode head) {
@@ -47,5 +50,17 @@ class _141_LinkedListCycle {
             if (fast == null || fast.next == null) return false;
         } while (slow != fast);
         return true;
+    }
+
+    public static boolean hasCycle2(ListNode head) {
+        if (head == null || head.next == null) return false;
+
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) return true;
+        }
+        return false;
     }
 }
