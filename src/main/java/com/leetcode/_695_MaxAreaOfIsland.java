@@ -37,10 +37,17 @@ Given the above grid, return 0.
 Note: The length of each dimension in the given grid does not exceed 50.
 */
 
+/**
+ * @see _200_NumberOfIslands
+ * @see _694_NumberOfDistinctIslands
+ * @see _1020_NumberOfEnclaves
+ * @see _1254_NumberOfClosedIslands
+ * @see _1905_CountSubIslands
+ */
 class _695_MaxAreaOfIsland {
 
     /**
-     * O(m * n), O(m * n)
+     * O(m * n), O(1)
      * Recursive
      */
     public static int maxAreaOfIsland(int[][] grid) {
@@ -48,26 +55,23 @@ class _695_MaxAreaOfIsland {
 
         final int R = grid.length, C = grid[0].length;
 
-        final boolean[][] marked = new boolean[R][C];
-
         int res = 0;
         for (int r = 0; r < R; r++) {
             for (int c = 0; c < C; c++) {
-                res = Math.max(res, getArea(grid, marked, r, c));
+                res = Math.max(res, dfs(grid, r, c));
             }
         }
         return res;
     }
 
-    private static int getArea(final int[][] grid, final boolean[][] marked, int r, int c) {
-        if (marked[r][c] || grid[r][c] == 0) return 0;
+    private static int dfs(final int[][] grid, int r, int c) {
+        if (r < 0 || c < 0 || r >= grid.length || c >= grid[0].length || grid[r][c] == 0) return 0;
 
-        marked[r][c] = true;
-        return (1
-                + (r < grid.length - 1 ? getArea(grid, marked, r + 1, c) : 0)
-                + (r >= 1 ? getArea(grid, marked, r - 1, c) : 0)
-                + (c < grid[0].length - 1 ? getArea(grid, marked, r, c + 1) : 0)
-                + (c >= 1 ? getArea(grid, marked, r, c - 1) : 0)
-        );
+        grid[r][c] = 0;
+        return dfs(grid, r + 1, c)
+                + dfs(grid, r - 1, c)
+                + dfs(grid, r, c + 1)
+                + dfs(grid, r, c - 1)
+                + 1;
     }
 }

@@ -43,17 +43,14 @@ grid[i][j] is '0' or '1'.
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * @see _694_NumberOfDistinctIslands
+ * @see _695_MaxAreaOfIsland
+ * @see _1020_NumberOfEnclaves
+ * @see _1254_NumberOfClosedIslands
+ * @see _1905_CountSubIslands
+ */
 class _200_NumberOfIslands {
-
-    private static void dfs(char[][] grid, int r, int c) {
-        if (r < 0 || c < 0 || r >= grid.length || c >= grid[0].length || grid[r][c] == '0') return;
-
-        grid[r][c] = '0';
-        dfs(grid, r - 1, c);
-        dfs(grid, r + 1, c);
-        dfs(grid, r, c - 1);
-        dfs(grid, r, c + 1);
-    }
 
     public static int numIslandsDFS(char[][] grid) {
         if (grid == null || grid.length == 0 || grid.length > 300
@@ -71,6 +68,16 @@ class _200_NumberOfIslands {
         }
 
         return res;
+    }
+
+    private static void dfs(char[][] grid, int r, int c) {
+        if (r < 0 || c < 0 || r >= grid.length || c >= grid[0].length || grid[r][c] == '0') return;
+
+        grid[r][c] = '0';
+        dfs(grid, r - 1, c);
+        dfs(grid, r + 1, c);
+        dfs(grid, r, c - 1);
+        dfs(grid, r, c + 1);
     }
 
     public static int numIslandsBFS(char[][] grid) {
@@ -143,11 +150,11 @@ class _200_NumberOfIslands {
             }
         }
 
-        public int count() {
+        int count() {
             return count;
         }
 
-        public int find(int p) {
+        int find(int p) {
             // without path compression
             //while (p != parent[p]) {
             //    p = parent[p];
@@ -171,7 +178,7 @@ class _200_NumberOfIslands {
             return parent[p];
         }
 
-        public void union(int p, int q) {
+        void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
             if (rootP == rootQ) return;
