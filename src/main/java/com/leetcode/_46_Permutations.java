@@ -47,4 +47,28 @@ class _46_Permutations {
         }
         return curr;
     }
+
+    public static List<List<Integer>> permute2(int[] nums) {
+        if (nums == null || nums.length == 0) return new ArrayList<>();
+
+        final List<List<Integer>> res = new ArrayList<>();
+        final List<Integer> track = new ArrayList<>(nums.length);
+        backtrack(nums, track, res);
+        return res;
+    }
+
+    private static void backtrack(int[] nums, List<Integer> track, List<List<Integer>> res) {
+        if (track.size() == nums.length) {
+            res.add(new ArrayList<>(track));
+            return;
+        }
+
+        for (int num : nums) {
+            if (track.contains(num)) continue;
+
+            track.add(num);
+            backtrack(nums, track, res);
+            track.remove(track.size() - 1);
+        }
+    }
 }
