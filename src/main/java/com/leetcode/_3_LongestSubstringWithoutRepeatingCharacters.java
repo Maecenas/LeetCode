@@ -27,7 +27,14 @@ Explanation: The answer is "wke", with the length of 3.
 */
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
+/**
+ * @see _76_MinimumWindowSubstring
+ * @see _438_FindAllAnagramsInAString
+ * @see _567_PermutationInString
+ */
 class _3_LongestSubstringWithoutRepeatingCharacters {
 
     public static int lengthOfLongestSubstring(String s) {
@@ -43,6 +50,27 @@ class _3_LongestSubstringWithoutRepeatingCharacters {
             left = Math.max(left, p[chars[i]]);
             p[chars[i]] = i;
             res = Math.max(res, i - left);
+        }
+        return res;
+    }
+
+    public static int lengthOfLongestSubstring2(String s) {
+        if (s == null) return 0;
+        if (s.length() <= 1) return s.length();
+
+        final Map<Character, Integer> window = new HashMap<>();
+        int left = 0, right = 0;
+        int res = 0;
+        while (right < s.length()) {
+            char ch = s.charAt(right);
+            right++;
+            window.merge(ch, 1, Integer::sum);
+
+            while (window.getOrDefault(ch, 0) > 1) {
+                char del = s.charAt(left);
+                window.merge(del, -1, Integer::sum);
+            }
+            res = Math.max(res, right - left);
         }
         return res;
     }

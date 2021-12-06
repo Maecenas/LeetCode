@@ -39,8 +39,15 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 */
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+/**
+ * @see _3_LongestSubstringWithoutRepeatingCharacters
+ * @see _76_MinimumWindowSubstring
+ * @see _567_PermutationInString
+ */
 class _438_FindAllAnagramsInAString {
 
     private static final int R = 26;  // lowercase letters
@@ -79,6 +86,46 @@ class _438_FindAllAnagramsInAString {
             if (counter == 0 && end >= p.length()) {
                 res.add(start);
             }
+        }
+        return res;
+    }
+
+    public static List<Integer> findAnagrams2(String s, String t) {
+        if (s == null || s.length() == 0 || t == null || t.length() == 0 || s.length() < t.length()) return new ArrayList<>();
+
+        final Map<Character, Integer> need = new HashMap<>(), window = new HashMap<>();
+        for (char ch : t.toCharArray()) {
+            need.merge(ch, 1, Integer::sum);
+        }
+
+        int left = 0, right = 0;
+        int valid = 0;
+        final List<Integer> res = new ArrayList<>();
+        while (right < s.length()) {
+            char ch = s.charAt(right);
+            right++;
+            // update window
+            if (need.containsKey(ch)) {
+                window.merge(ch, 1, Integer::sum);
+                if ((int) window.get(ch) == need.get(ch)) {
+                    valid++;
+                }
+            }
+
+            while (right - left == t.length()) {
+                if (valid == need.size()) {
+                    res.add(left);
+                }
+                char del = s.charAt(left);
+                left++;
+                if (need.containsKey(del)) {
+                    if ((int) window.get(del) == need.get(del)) {
+                        valid--;
+                    }
+                    window.merge(del, -1, Integer::sum);
+                }
+            }
+
         }
         return res;
     }
