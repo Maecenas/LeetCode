@@ -31,6 +31,8 @@ Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (m
 
 /**
  * @see _152_MaximumProductSubarray
+ * @see _213_HouseRobberII
+ * @see _337_HouseRobberIII
  */
 class _198_HouseRobber {
 
