@@ -35,7 +35,7 @@ class _211_AddAndSearchWordDataStructureDesign {
         private static final int WILDCARD = '.' - 'a';
 
         private static class TrieNode {
-            TrieNode[] next = new TrieNode[R];
+            final TrieNode[] next = new TrieNode[R];
             boolean isWord = false;
 
             public TrieNode() {
@@ -43,7 +43,7 @@ class _211_AddAndSearchWordDataStructureDesign {
             }
         }
 
-        TrieNode root;
+        final TrieNode root;
 
         /**
          * Initialize your data structure here.

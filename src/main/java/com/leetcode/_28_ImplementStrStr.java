@@ -30,7 +30,7 @@ This is consistent to C's strstr() and Java's indexOf().
 /**
  * Substring Search can be made in linear/ sub-linear time with algorithms like
  * Knuth-Morris-Pratt, Boyer-Moore and Rabin-Karp. See also:
- * <a>https://algs4.cs.princeton.edu/53substring/</a>
+ * <a href="https://algs4.cs.princeton.edu/53substring/">...</a>
  * <p>
  * Such type of questions can be extended as Pattern Matching
  */

@@ -124,11 +124,11 @@ class _200_NumberOfIslands {
 
     /**
      * See also: weighted quick-union with path compression
-     * <a>https://algs4.cs.princeton.edu/15uf/WeightedQuickUnionPathCompressionUF.java.html</a>
+     * <a href="https://algs4.cs.princeton.edu/15uf/WeightedQuickUnionPathCompressionUF.java.html">...</a>
      */
-    static class UnionFind {
-        int[] parent;
-        int[] size;
+    private static class UnionFind {
+        final int[] parent;
+        final int[] size;
         int count;
 
         public UnionFind(char[][] grid) {

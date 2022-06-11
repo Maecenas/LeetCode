@@ -33,7 +33,7 @@ class _125_ValidPalindrome {
     public static boolean isPalindrome(String s) {
         if (s == null || s.length() <= 1) return true;
 
-        final char[] chars = s.toCharArray();
+        final char[] chars = s.toLowerCase().toCharArray();
 
         for (int i = 0, j = chars.length - 1; i < j; i++, j--) {
             while (i < j && !Character.isLetterOrDigit(chars[i])) {
@@ -43,8 +43,7 @@ class _125_ValidPalindrome {
                 j--;
             }
 
-            if (i < j && Character.toLowerCase(chars[i]) != Character.toLowerCase(chars[j]))
-                return false;
+            if (chars[i] != chars[j]) return false;
         }
 
         return true;

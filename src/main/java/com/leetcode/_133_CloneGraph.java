@@ -76,8 +76,8 @@ import java.util.List;
 class _133_CloneGraph {
 
     static class Node {
-        public int val;
-        public List<Node> neighbors;
+        final int val;
+        final List<Node> neighbors;
 
         public Node() {
             val = 0;
@@ -111,7 +111,7 @@ class _133_CloneGraph {
     }
 
     private static Node cloneGraphDFS(Node node) {
-        if (node == null) return node;
+        if (node == null) return null;
 
         if (nodes[node.val] != null) {
             return nodes[node.val];
@@ -138,7 +138,7 @@ class _133_CloneGraph {
     }
 
     private static Node cloneGraphBFS(Node root) {
-        if (root == null) return root;
+        if (root == null) return null;
 
         final Deque<Node> queue = new ArrayDeque<>();
         nodes[root.val] = new Node(root.val);

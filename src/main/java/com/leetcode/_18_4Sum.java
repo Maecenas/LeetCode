@@ -28,6 +28,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.leetcode._15_3Sum.threeSumTarget;
+
+/**
+ * @see _1_TwoSum
+ * @see _15_3Sum
+ */
 class _18_4Sum {
 
     public static List<List<Integer>> fourSum(int[] nums, int target) {
@@ -60,6 +66,71 @@ class _18_4Sum {
                         hi--;
                     }
                 }
+            }
+        }
+        return res;
+    }
+
+    public static List<List<Integer>> fourSum2(int[] nums, int target) {
+        if (nums == null || nums.length < 4) return new ArrayList<>();
+
+        Arrays.sort(nums);
+        return fourSumTarget(nums, target, 0);
+    }
+
+    private static List<List<Integer>> fourSumTarget(int[] nums, int target, int start) {
+        List<List<Integer>> res = new ArrayList<>();
+
+        final int n = nums.length;
+        for (int i = start; i < n; i++) {
+            List<List<Integer>> tuples = threeSumTarget(nums, target - nums[i], i + 1);
+            for (List<Integer> tuple : tuples) {
+                res.add(Arrays.asList(nums[i], tuple.get(0), tuple.get(1)));
+            }
+            while (i < n - 1 && nums[i + 1] == nums[i]) i++;
+        }
+
+        return res;
+    }
+
+    public static List<List<Integer>> fourSum3(int[] nums, int target) {
+        if (nums == null || nums.length < 4) return new ArrayList<>();
+
+        Arrays.sort(nums);
+        return nSumTarget(4, nums, target, 0);
+    }
+
+    private static List<List<Integer>> nSumTarget(int n, int[] nums, int target, int start) {
+        List<List<Integer>> res = new ArrayList<>();
+        final int size = nums.length;
+        if (n < 2 || size < n) return res;
+        if (n == 2) {
+            int lo = start, hi = size - 1;
+            while (lo < hi) {
+                int left = nums[lo], right = nums[hi];
+                int sum = nums[lo] + nums[hi];
+                if (sum < target) {
+                    while (lo < hi && nums[lo] == left) lo++;
+                } else if (sum > target) {
+                    while (lo < hi && nums[hi] == right) hi--;
+                } else /* if (sum == target) */ {
+                    List<Integer> tuple = new ArrayList<>();
+                    tuple.add(left);
+                    tuple.add(right);
+                    res.add(tuple);
+
+                    while (lo < hi && nums[lo] == left) lo++;
+                    while (lo < hi && nums[hi] == right) hi--;
+                }
+            }
+        } else /* if (n > 2) */ {
+            for (int i = start; i < size; i++) {
+                List<List<Integer>> sub = nSumTarget(n - 1, nums, target - nums[i], i + 1);
+                for (List<Integer> arr : sub) {
+                    arr.add(0, nums[i]);
+                    res.add(arr);
+                }
+                while (i < size - 1 && nums[i + 1] == nums[i]) i++;
             }
         }
         return res;

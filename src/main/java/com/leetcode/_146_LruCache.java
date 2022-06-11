@@ -62,7 +62,12 @@ import java.util.Map;
  */
 class _146_LruCache {
 
-    static class LRUCache extends LinkedHashMap<Integer, Integer> {
+    interface iLruCache {
+        int get(int key);
+        Integer put(Integer key, Integer value);
+    }
+
+    static class LRUCache extends LinkedHashMap<Integer, Integer> implements iLruCache {
 
         private final int capacity;
 

@@ -63,7 +63,6 @@ class _269_AlienDictionary {
 
     private static final int R = 26;  // lowercase letters
     private static final List<Integer>[] reverseAdjList = new List[R];
-    private static int size = 0;
     private static final Boolean[] seen = new Boolean[R];
     private static final StringBuilder sb = new StringBuilder();
 
@@ -71,7 +70,7 @@ class _269_AlienDictionary {
         if (words == null || words.length == 0) return "";
 
         Arrays.fill(reverseAdjList, null);
-        size = 0;
+        int size = 0;
         Arrays.fill(seen, null);
         sb.delete(0, sb.length());
 

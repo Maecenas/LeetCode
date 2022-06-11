@@ -59,7 +59,7 @@ class _162_FindPeakElement {
         // find a local maximum
         int lo = 0, hi = nums.length - 1;
         while (lo < hi) {
-            int mid = lo + ((hi - lo) >> 1);
+            int mid = (lo + hi) >>> 1;
             if (nums[mid] > nums[mid + 1]) {
                 hi = mid;
             } else {

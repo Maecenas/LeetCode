@@ -53,7 +53,7 @@ class _670_MaximumSwap {
                     digits[i] = digits[last[d]];
                     digits[last[d]] = tmp;
                     // change an array char[] to int
-                    return Integer.valueOf(String.valueOf(digits));
+                    return Integer.parseInt(String.valueOf(digits));
                 }
             }
         }

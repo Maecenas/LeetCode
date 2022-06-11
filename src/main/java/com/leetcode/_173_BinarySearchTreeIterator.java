@@ -47,7 +47,7 @@ class _173_BinarySearchTreeIterator {
      */
     static class BSTIterator {
 
-        List<Integer> nodes;
+        final List<Integer> nodes;
         int index;
 
         public BSTIterator(TreeNode root) {
@@ -80,7 +80,7 @@ class _173_BinarySearchTreeIterator {
     static class BSTIterator2 {
 
         TreeNode node;
-        Deque<TreeNode> stack = new ArrayDeque<>();
+        final Deque<TreeNode> stack = new ArrayDeque<>();
 
         public BSTIterator2(TreeNode root) {
             node = root;
@@ -123,29 +123,29 @@ class _173_BinarySearchTreeIterator {
     static class BSTIteratorMorris {
 
         // next node to visit
-        TreeNode node;
+        private TreeNode curr;
 
         public BSTIteratorMorris(TreeNode root) {
-            node = morris(root);
+            curr = morris(root);
         }
 
-        private static TreeNode morris(TreeNode node) {
-            TreeNode left;
-            while (node != null) {
-                left = node.left;
-                if (left != null) {
-                    while (left.right != null && left.right != node) {
-                        left = left.right;
+        private static TreeNode morris(TreeNode tourist) {
+            TreeNode guide;
+            while (tourist != null) {
+                guide = tourist.left;
+                if (guide != null) {
+                    while (guide.right != null && guide.right != tourist) {
+                        guide = guide.right;
                     }
-                    if (left.right == null) {
-                        left.right = node;
-                        node = node.left;
-                    } else /* if (left.right == root) */ {
-                        left.right = null;
-                        return node;
+                    if (guide.right == null) {
+                        guide.right = tourist;
+                        tourist = tourist.left;
+                    } else /* if (guide.right == tourist) */ {
+                        guide.right = null;
+                        return tourist;
                     }
                 } else {
-                    return node;
+                    return tourist;
                 }
             }
             return null;
@@ -154,13 +154,13 @@ class _173_BinarySearchTreeIterator {
         public int next() {
             if (!hasNext()) return -1;
 
-            int val = node.val;
-            node = morris(node.right);
+            int val = curr.val;
+            curr = morris(curr.right);
             return val;
         }
 
         public boolean hasNext() {
-            return node != null;
+            return curr != null;
         }
     }
 }

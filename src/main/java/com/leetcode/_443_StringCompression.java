@@ -58,8 +58,6 @@ chars[i] is a lower-case English letter, upper-case English letter, digit,
 or symbol.
 */
 
-import java.util.Arrays;
-
 class _443_StringCompression {
 
     public static int compress(char[] chars) {

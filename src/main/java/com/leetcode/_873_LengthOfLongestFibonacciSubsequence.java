@@ -55,7 +55,7 @@ class _873_LengthOfLongestFibonacciSubsequence {
         if (A == null || A.length < 3) return 0;
 
         final int len = A.length;
-        final HashMap<Integer, Integer> index = new HashMap<>(), dp = new HashMap<>();
+        final Map<Integer, Integer> index = new HashMap<>(), dp = new HashMap<>();
         for (int i = 0; i < len; i++) {
             index.put(A[i], i);
         }

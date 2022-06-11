@@ -38,7 +38,7 @@ import java.util.List;
  */
 class _107_BinaryTreeLevelOrderTraversalII {
 
-    public List<List<Integer>> levelOrderBottom(TreeNode root) {
+    public static List<List<Integer>> levelOrderBottom(TreeNode root) {
         if (root == null) return new ArrayList<>();
 
         final List<List<Integer>> res = new ArrayList<>();

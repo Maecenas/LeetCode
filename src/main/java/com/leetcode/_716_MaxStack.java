@@ -118,7 +118,7 @@ class _716_MaxStack {
     static class MaxStack2 {
 
         private static class Node {
-            int val;
+            final int val;
             Node prev, next, recent;
 
             Node(int val) {
@@ -215,7 +215,7 @@ class _716_MaxStack {
 
         /** Added LinkedList helper methods */
         private static class Node {
-            int val;
+            final int val;
             Node prev, next, recent;
 
             Node(int val) {

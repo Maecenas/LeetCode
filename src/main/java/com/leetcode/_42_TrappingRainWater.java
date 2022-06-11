@@ -86,16 +86,16 @@ class _42_TrappingRainWater {
     public static int trap3(int[] height) {
         if (height == null || height.length < 3) return 0;
 
-        // minimum value so far (decreasing stack)
+        // the indexes of minimum value so far (decreasing stack)
         final Deque<Integer> stack = new ArrayDeque<>();
 
         int res = 0;
         for (int i = 0; i < height.length; i++) {
             while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
-                int top = stack.pop();
+                int bottom = stack.pop();
                 if (stack.isEmpty()) break;
                 int width = i - stack.peek() - 1;
-                int minHeight = Math.min(height[i], height[stack.peek()]) - height[top];
+                int minHeight = Math.min(height[i], height[stack.peek()]) - height[bottom];
                 res += width * minHeight;
             }
             stack.push(i);

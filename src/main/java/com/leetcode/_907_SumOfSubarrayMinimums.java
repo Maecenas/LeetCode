@@ -83,7 +83,7 @@ class _907_SumOfSubarrayMinimums {
         for (int i = 0; i < len; i++) {
             // res = (res + A[i] * left[i] * right[i]) % MOD;
             // res = (res + (A[i] * left[i] * right[i]) % MOD) % MOD;
-            res = res + A[i] * left[i] * right[i];
+            res = res + (long) A[i] * left[i] * right[i];
         }
         return (int) (res % MOD);
     }

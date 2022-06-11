@@ -46,7 +46,7 @@ class _1093_StatisticsFromALargeSample {
             if (min == Integer.MAX_VALUE && cnt != 0) min = i;
             if (max == Integer.MIN_VALUE && count[count.length - 1 - i] != 0) max = count.length - 1 - i;
             n += cnt;
-            sum += i * cnt;
+            sum += (long) i * cnt;
             if (cnt > count[mode]) mode = i;
         }
 

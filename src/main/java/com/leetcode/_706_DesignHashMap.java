@@ -49,7 +49,8 @@ class _706_DesignHashMap {
     static class MyHashMap {
 
         private static class Node {
-            int key, val;
+            final int key;
+            int val;
             Node next;
 
             Node(int key, int val) {

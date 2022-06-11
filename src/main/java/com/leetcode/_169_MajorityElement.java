@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @see _229_MajorityElementII
@@ -76,7 +77,7 @@ class _169_MajorityElement {
         if (nums == null || nums.length == 0) throw new IllegalArgumentException();
         else if (nums.length == 1) return nums[0];
 
-        Random rand = new Random();
+        Random rand = ThreadLocalRandom.current();
         int majorityCount = nums.length / 2;
 
         while (true) {

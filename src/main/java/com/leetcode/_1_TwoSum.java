@@ -18,6 +18,10 @@ return [0, 1].
 
 import java.util.HashMap;
 
+/**
+ * @see _15_3Sum
+ * @see _18_4Sum
+ */
 class _1_TwoSum {
 
     public static int[] twoSum(int[] nums, int target) {

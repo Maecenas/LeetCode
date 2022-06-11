@@ -68,17 +68,15 @@ class _100_SameTree {
             q = deqQ.removeFirst();
 
             if (isInvalid(p, q)) return false;
-            if (p != null) {
-                if (isInvalid(p.left, q.left)) return false;
-                if (p.left != null) {
-                    deqP.addLast(p.left);
-                    deqQ.addLast(q.left);
-                }
-                if (isInvalid(p.right, q.right)) return false;
-                if (p.right != null) {
-                    deqP.addLast(p.right);
-                    deqQ.addLast(q.right);
-                }
+            if (isInvalid(p.left, q.left)) return false;
+            if (p.left != null) {
+                deqP.addLast(p.left);
+                deqQ.addLast(q.left);
+            }
+            if (isInvalid(p.right, q.right)) return false;
+            if (p.right != null) {
+                deqP.addLast(p.right);
+                deqQ.addLast(q.right);
             }
         }
         return true;

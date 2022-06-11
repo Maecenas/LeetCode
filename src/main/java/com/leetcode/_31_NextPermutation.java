@@ -20,6 +20,8 @@ its corresponding outputs are in the right-hand column.
 1,1,5 → 1,5,1
 */
 
+import java.util.Arrays;
+
 /**
  * @see _46_Permutations
  * @see _47_PermutationsII
@@ -29,7 +31,7 @@ class _31_NextPermutation {
 
     /**
      * O(n), O(1)
-     * See also: <a>https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order</a>
+     * See also: <a href="https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order">...</a>
      */
     public static void nextPermutation(int[] nums) {
         if (nums == null || nums.length <= 1) return;
@@ -64,5 +66,16 @@ class _31_NextPermutation {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] original = {1, 2, 3, 4};
+        int[] nums = {1, 2, 3, 4};
+        int i = 1;
+        do {
+            System.out.println("Round " + i++ + ": " + Arrays.toString(nums));
+            nextPermutation(nums);
+        } while (!Arrays.equals(nums, original));
+        System.out.println("Round " + i + ": " + Arrays.toString(nums));
     }
 }

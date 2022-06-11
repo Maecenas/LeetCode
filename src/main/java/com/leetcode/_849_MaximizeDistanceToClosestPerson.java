@@ -48,7 +48,7 @@ class _849_MaximizeDistanceToClosestPerson {
         for (int i = 0; i < len; i++) {
             if (seats[i] == 0) continue;
             if (prev == -1) {
-                res = Math.max(res, i);
+                res = i;
             } else {
                 res = Math.max(res, (i - prev) >> 1);
             }

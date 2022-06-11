@@ -57,10 +57,10 @@ class _229_MajorityElementII {
         // second round to confirm
         count1 = 0;
         count2 = 0;
-        for (int i = 0; i < len; i++) {
-            if (nums[i] == candidate1) {
+        for (int num : nums) {
+            if (num == candidate1) {
                 count1++;
-            } else if (nums[i] == candidate2) {
+            } else if (num == candidate2) {
                 count2++;
             }
         }

@@ -54,17 +54,18 @@ interface MountainArray {
 
 import java.util.HashMap;
 
-interface MountainArray {
-    int get(int index);
-
-    int length();
-}
 
 /**
  * @see _162_FindPeakElement
  * @see _852_PeakIndexInAMountainArray
  */
 class _1095_FindInMountainArray {
+
+    interface MountainArray {
+        int get(int index);
+
+        int length();
+    }
 
     public static int findInMountainArray(int target, MountainArray arr) {
         final int len = arr.length();
@@ -125,26 +126,26 @@ class _1095_FindInMountainArray {
             return val;
         }
     }
-}
 
-/**
- * Test stub
- */
-class MyMountainArray implements MountainArray {
+    /**
+     * Test stub
+     */
+    static class MyMountainArray implements MountainArray {
 
-    private final int[] nums;
+        private final int[] nums;
 
-    MyMountainArray(int[] nums) {
-        this.nums = nums;
-    }
+        MyMountainArray(int[] nums) {
+            this.nums = nums;
+        }
 
-    @Override
-    public int get(int index) {
-        return nums[index];
-    }
+        @Override
+        public int get(int index) {
+            return nums[index];
+        }
 
-    @Override
-    public int length() {
-        return nums.length;
+        @Override
+        public int length() {
+            return nums.length;
+        }
     }
 }

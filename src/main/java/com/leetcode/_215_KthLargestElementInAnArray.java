@@ -2,7 +2,7 @@ package com.leetcode;
 
 /*
 https://leetcode.com/problems/kth-largest-element-in-an-array/
-Medium. Divide and Conquer, Heap.
+Medium. Array, Divide and Conquer, Sorting, Heap, Quickselect.
 
 Find the kth largest element in an unsorted array. Note that it is the
 kth largest element in the sorted order, not the kth distinct element.
@@ -112,5 +112,13 @@ class _215_KthLargestElementInAnArray {
         swap(nums, lo, j);
         // return index of item now known to be in place
         return j;
+    }
+
+    public static int findKthLargest4(int[] nums, int k) {
+        return Arrays.stream(nums)
+                .sorted()
+                .skip(nums.length - k)
+                .limit(1)
+                .sum();
     }
 }

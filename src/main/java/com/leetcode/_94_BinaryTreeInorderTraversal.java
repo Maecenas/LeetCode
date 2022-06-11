@@ -76,13 +76,16 @@ class _94_BinaryTreeInorderTraversal {
         while (tourist != null) {
             guide = tourist.left;
             if (tourist.left != null) {
+                // guide go to the rightmost node
                 while (guide.right != null && guide.right != tourist) {
                     guide = guide.right;
                 }
+                // create a bridge to the right
                 if (guide.right == null) {
                     guide.right = tourist;
                     tourist = tourist.left;
                 } else /* if (guide.right == tourist) */ {
+                    // bridge detected, finished left traversal
                     guide.right = null;
                     res.add(tourist.val);
                     tourist = tourist.right;
