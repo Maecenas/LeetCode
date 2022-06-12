@@ -5,7 +5,7 @@ import java.util.Deque;
 
 public class TreeNode {
 
-    private static final int NULL = Integer.MIN_VALUE;
+    private static final TreeNode NULL = new TreeNode();
 
     public int val;
     public TreeNode left;
@@ -24,6 +24,20 @@ public class TreeNode {
         this.right = right;
     }
 
+    public static TreeNode fromLevelOrder(Integer[] values) {
+        return fromLevelOrder(values, 0);
+    }
+
+    private static TreeNode fromLevelOrder(Integer[] values, int i) {
+        if (i >= values.length) return null;
+        else if (values[i] == null) return NULL;
+
+        return new TreeNode(values[i],
+                fromLevelOrder(values, 2 * i + 1),
+                fromLevelOrder(values, 2 * i + 2)
+        );
+    }
+
     /**
      * Level-order traversal
      */
@@ -35,11 +49,11 @@ public class TreeNode {
         TreeNode temp;
         while (!q.isEmpty()) {
             temp = q.poll();
-            sb.append(temp.val != NULL ? temp.val : "null");
+            sb.append(temp != NULL ? temp.val : "null");
             sb.append(", ");
-            if (temp.val != NULL && (temp.left != null || temp.right != null)) {
-                q.offer(temp.left != null ? temp.left : new TreeNode(NULL));
-                q.offer(temp.right != null ? temp.right : new TreeNode(NULL));
+            if (temp != NULL && (temp.left != null || temp.right != null)) {
+                q.offer(temp.left);
+                q.offer(temp.right);
             }
         }
         sb.setCharAt(sb.length() - 2, ']');
