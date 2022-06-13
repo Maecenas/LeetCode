@@ -37,6 +37,9 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+/**
+ * @see _987_VerticalOrderTraversalOfABinaryTree
+ */
 class _314_BinaryTreeVerticalOrderTraversal {
 
     public static List<List<Integer>> verticalOrder(TreeNode root) {
