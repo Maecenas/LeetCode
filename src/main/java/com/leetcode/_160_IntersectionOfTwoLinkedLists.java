@@ -75,6 +75,9 @@ Follow up: Could you write a solution that runs in O(n) time and use only O(1) m
 
 import com.leetcode.utils.ListNode;
 
+/**
+ * @see _1650_LowestCommonAncestorOfABinaryTreeIII
+ */
 class _160_IntersectionOfTwoLinkedLists {
 
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {

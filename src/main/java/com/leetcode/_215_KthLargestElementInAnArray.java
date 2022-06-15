@@ -26,7 +26,8 @@ import java.util.PriorityQueue;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @see _973_KClosestPointsToOrigin#kClosest2(int[][], int)
+ * @see _347_TopKFrequentElements#topKFrequent3
+ * @see _973_KClosestPointsToOrigin#kClosest2
  */
 class _215_KthLargestElementInAnArray {
 
@@ -68,7 +69,7 @@ class _215_KthLargestElementInAnArray {
         else if (nums.length == 1 && k == 1) return nums[0];
 
         shuffle(nums);
-        k = nums.length - k;  // k_th largest
+        k = nums.length - k;  // k-th largest
         int lo = 0, hi = nums.length - 1;
         while (lo < hi) {
             int j = partition(nums, lo, hi);

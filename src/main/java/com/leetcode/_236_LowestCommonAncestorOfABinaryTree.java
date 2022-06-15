@@ -37,6 +37,12 @@ Constraints:
 
 import com.leetcode.utils.TreeNode;
 
+/**
+ * @see _235_LowestCommonAncestorOfABinarySearchTree
+ * @see _1644_LowestCommonAncestorOfABinaryTreeII
+ * @see _1650_LowestCommonAncestorOfABinaryTreeIII
+ * @see _1676_LowestCommonAncestorOfABinaryTreeIV
+ */
 class _236_LowestCommonAncestorOfABinaryTree {
 
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
