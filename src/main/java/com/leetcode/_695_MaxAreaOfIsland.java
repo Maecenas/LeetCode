@@ -40,6 +40,7 @@ Note: The length of each dimension in the given grid does not exceed 50.
 /**
  * @see _200_NumberOfIslands
  * @see _694_NumberOfDistinctIslands
+ * @see _827_MakingALargeIsland
  * @see _1020_NumberOfEnclaves
  * @see _1254_NumberOfClosedIslands
  * @see _1905_CountSubIslands

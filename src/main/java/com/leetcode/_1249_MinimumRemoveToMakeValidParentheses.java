@@ -45,6 +45,9 @@ Constraints:
 s[i] is one of '(' , ')' and lowercase English letters.
 */
 
+/**
+ * @see _301_RemoveInvalidParentheses
+ */
 class _1249_MinimumRemoveToMakeValidParentheses {
 
     public static String minRemoveToMakeValid(String s) {

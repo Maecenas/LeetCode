@@ -34,6 +34,7 @@ import java.util.Set;
 /**
  * @see _200_NumberOfIslands
  * @see _695_MaxAreaOfIsland
+ * @see _827_MakingALargeIsland
  * @see _1020_NumberOfEnclaves
  * @see _1254_NumberOfClosedIslands
  * @see _1905_CountSubIslands
