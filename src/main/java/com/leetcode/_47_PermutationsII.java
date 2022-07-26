@@ -38,8 +38,9 @@ class _47_PermutationsII {
             res.add(new ArrayList<>(arr));
         } else {
             for (int i = 0; i < nums.length; i++) {
+                if (marked[i]) continue;
                 // skip duplicates
-                if (marked[i] || (i > 0 && nums[i] != nums[i - 1] && !marked[i - 1])) continue;
+                if (i > 0 && nums[i] == nums[i - 1] && !marked[i - 1]) continue;
                 marked[i] = true;
                 arr.add(nums[i]);
                 backtrack(res, arr, nums, marked);

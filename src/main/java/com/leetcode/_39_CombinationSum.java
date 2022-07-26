@@ -30,8 +30,8 @@ Input: candidates = [2,3,5], target = 8,
 A solution set is:
 [
   [2,2,2,2],
-  [2,3,3],
-  [3,5]
+  [2,3,3],
+  [3,5]
 ]
 */
 
