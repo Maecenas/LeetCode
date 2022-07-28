@@ -17,15 +17,15 @@ Example 1:
 Input: [3,3,5,0,0,3,1,4]
 Output: 6
 Explanation: Buy on day 4 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.
-             Then buy on day 7 (price = 1) and sell on day 8 (price = 4), profit = 4-1 = 3.
+             Then buy on day 7 (price = 1) and sell on day 8 (price = 4), profit = 4-1 = 3.
 
 Example 2:
 
 Input: [1,2,3,4,5]
 Output: 4
 Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
-             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are
-             engaging multiple transactions at the same time. You must sell before buying again.
+             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are
+             engaging multiple transactions at the same time. You must sell before buying again.
 
 Example 3:
 
@@ -61,5 +61,32 @@ class _123_BestTimeToBuyAndSellStockIII {
         }
         // Since release1 is initiated as 0, release2 will always higher than release1.
         return release2;
+    }
+
+    /**
+     * dp[n][0] -> maxProfit at day n when not holding shares
+     * dp[n][1] -> maxProfit at day n when holding shares
+     * <p>
+     * dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i])
+     * dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i])
+     */
+    public static int maxProfitDpTemplate(int[] prices) {
+        if (prices == null || prices.length <= 1) return 0;
+
+        final int n = prices.length;
+        final int K = 2;
+        final int[][][] dp = new int[2][K + 1][2];
+        for (int i = 0; i < n; i++) {
+            for (int k = K; k >= 1; k--) {
+                if (i == 0) {
+                    dp[i][k][0] = 0;
+                    dp[i][k][1] = -prices[i];
+                    continue;
+                }
+                dp[i % 2][k][0] = Math.max(dp[(i - 1) % 2][k][0], dp[(i - 1) % 2][k][1] + prices[i]);
+                dp[i % 2][k][1] = Math.max(dp[(i - 1) % 2][k][1], dp[(i - 1) % 2][k - 1][0] - prices[i]);
+            }
+        }
+        return dp[(n - 1) % 2][K][0];
     }
 }

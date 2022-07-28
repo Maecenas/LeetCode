@@ -23,7 +23,7 @@ Example 2:
 Input: [3,2,6,5,0,3], k = 2
 Output: 7
 Explanation: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4.
-             Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.
+             Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.
 */
 
 /**
@@ -66,5 +66,36 @@ class _188_BestTimeToBuyAndSellStockIV {
             }
         }
         return dp[k][len - 1];
+    }
+
+    /**
+     * dp[n][0] -> maxProfit at day n when not holding shares
+     * dp[n][1] -> maxProfit at day n when holding shares
+     * <p>
+     * dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i])
+     * dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i])
+     */
+    public static int maxProfitDpTemplate(int K, int[] prices) {
+        if (prices == null || prices.length <= 1) return 0;
+
+        final int n = prices.length;
+        // can make any number of transactions
+        if (K >= n / 2) {
+            return _122_BestTimeToBuyAndSellStockII.maxProfitDpTemplate(prices);
+        }
+
+        final int[][][] dp = new int[2][K + 1][2];
+        for (int i = 0; i < n; i++) {
+            for (int k = K; k >= 1; k--) {
+                if (i == 0) {
+                    dp[i][k][0] = 0;
+                    dp[i][k][1] = -prices[i];
+                    continue;
+                }
+                dp[i % 2][k][0] = Math.max(dp[(i - 1) % 2][k][0], dp[(i - 1) % 2][k][1] + prices[i]);
+                dp[i % 2][k][1] = Math.max(dp[(i - 1) % 2][k][1], dp[(i - 1) % 2][k - 1][0] - prices[i]);
+            }
+        }
+        return dp[(n - 1) % 2][K][0];
     }
 }

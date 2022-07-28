@@ -17,7 +17,7 @@ Example 1:
 Input: [7,1,5,3,6,4]
 Output: 5
 Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-             Not 7-1 = 6, as selling price needs to be larger than buying price.
+             Not 7-1 = 6, as selling price needs to be larger than buying price.
 
 Example 2:
 
@@ -61,5 +61,26 @@ class _121_BestTimeToBuyAndSellStock {
             maxSoFar = Math.max(maxSoFar, maxCurr);
         }
         return maxSoFar;
+    }
+
+    /**
+     * dp[n][0] -> maxProfit at day n when not holding shares
+     * dp[n][1] -> maxProfit at day n when holding shares
+     * <p>
+     * dp[n][0] = max(dp[n - 1][0], dp[n - 1][1] + prices[i])
+     * dp[n][1] = max(dp[n - 1][1], -prices[i])
+     */
+    public static int maxProfitDpTemplate(int[] prices) {
+        if (prices == null || prices.length <= 1) return 0;
+
+        final int n = prices.length;
+        final int[][] dp = new int[2][2];
+        dp[0][0] = 0;
+        dp[0][1] = -prices[0];
+        for (int i = 1; i < n; i++) {
+            dp[i % 2][0] = Math.max(dp[(i - 1) % 2][0], dp[(i - 1) % 2][1] + prices[i]);
+            dp[i % 2][1] = Math.max(dp[(i - 1) % 2][1], -prices[i]);
+        }
+        return dp[(n - 1) % 2][0];
     }
 }

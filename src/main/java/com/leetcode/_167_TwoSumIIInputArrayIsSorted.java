@@ -31,13 +31,46 @@ class _167_TwoSumIIInputArrayIsSorted {
         int lo = 0, hi = numbers.length - 1;
         while (lo < hi) {
             if (numbers[lo] + numbers[hi] < target) {
-                hi--;
-            } else if (numbers[lo] + numbers[hi] > target) {
                 lo++;
+            } else if (numbers[lo] + numbers[hi] > target) {
+                hi--;
             } else {
                 return new int[]{lo + 1, hi + 1};
             }
         }
         return new int[0];
+    }
+
+    public static int[] twoSum2(int[] numbers, int target) {
+        if (numbers == null || numbers.length < 2) return new int[0];
+
+        int lo = 0, hi = numbers.length - 1;
+        while (lo < hi) {
+            if (numbers[lo] + numbers[hi] == target) {
+                return new int[]{lo + 1, hi + 1};
+            } else if (numbers[lo] + numbers[hi] < target) {
+                lo = binarySearch(numbers, target - numbers[hi], lo + 1, hi);
+            } else /* if (numbers[lo] + numbers[hi] > target) */ {
+                hi = binarySearch(numbers, target - numbers[lo], lo + 1, hi);
+            }
+        }
+        return new int[0];
+    }
+
+    private static int binarySearch(final int[] nums, final int target, int lo, int hi) {
+        int mid;
+        // [lo, hi]
+        while (lo < hi) {
+            mid = (lo + hi) >>> 1;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                lo = mid + 1;
+            } else if (nums[mid] > target) {
+                hi = mid - 1;
+            }
+        }
+        // return when lo == hi
+        return lo;
     }
 }
