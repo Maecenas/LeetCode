@@ -2,7 +2,7 @@ package com.leetcode;
 
 /*
 https://leetcode.com/problems/corporate-flight-bookings/
-Medium.
+Medium. Array, Prefix Sum.
 
 There are n flights, and they are labeled from 1 to n.
 

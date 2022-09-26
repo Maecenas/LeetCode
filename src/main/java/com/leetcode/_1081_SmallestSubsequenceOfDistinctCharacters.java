@@ -33,6 +33,9 @@ text consists of lowercase English letters.
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/**
+ * @see _316_RemoveDuplicateLetters
+ */
 class _1081_SmallestSubsequenceOfDistinctCharacters {
 
     private static final int R = 26;  // lowercase letters
@@ -59,9 +62,9 @@ class _1081_SmallestSubsequenceOfDistinctCharacters {
         }
 
         final StringBuilder res = new StringBuilder();
-        for (int c : stack) {
-            res.append((char) ('a' + c));
+        while (!stack.isEmpty()) {
+            res.append((char) (stack.pop() + 'a'));
         }
-        return res.toString();
+        return res.reverse().toString();
     }
 }

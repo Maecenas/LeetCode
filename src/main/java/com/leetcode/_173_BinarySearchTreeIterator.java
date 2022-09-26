@@ -38,6 +38,7 @@ import java.util.List;
 
 /**
  * @see _94_BinaryTreeInorderTraversal#inorderTraversalMorris
+ * @see _114_FlattenBinaryTreeToLinkedList#flattenMorris
  */
 class _173_BinarySearchTreeIterator {
 

@@ -52,8 +52,8 @@ public class TreeNode {
             sb.append(temp != NULL ? temp.val : "null");
             sb.append(", ");
             if (temp != NULL && (temp.left != null || temp.right != null)) {
-                q.offer(temp.left);
-                q.offer(temp.right);
+                q.offer(temp.left != null ? temp.left : NULL);
+                q.offer(temp.right != null ? temp.right : NULL);
             }
         }
         sb.setCharAt(sb.length() - 2, ']');

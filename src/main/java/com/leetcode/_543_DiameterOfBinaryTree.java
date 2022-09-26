@@ -47,7 +47,7 @@ class _543_DiameterOfBinaryTree {
 
     /**
      * Returns (maxDepth, maxDiameter) of paths across the tree
-     *
+     * <p>
      * Math: maxDepth(root) = 1 + max(maxDepth(left), maxDepth(right))
      *       maxDiameter(root) = max(maxDiameter(left),
      *                               maxDiameter(right),
@@ -68,5 +68,24 @@ class _543_DiameterOfBinaryTree {
                         left[0] + right[0]
                 )
         };
+    }
+
+    int maxDiameter = 0;
+
+    public int diameterOfBinaryTree2(TreeNode root) {
+        if (root == null) return 0;
+        else if (root.left == null && root.right == null) return 0;
+
+        maxDepth(root);
+        return maxDiameter;
+    }
+
+    private int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+
+        int leftMax = maxDepth(root.left);
+        int rightMax = maxDepth(root.right);
+        maxDiameter = Math.max(maxDiameter, leftMax + rightMax);
+        return 1 + Math.max(leftMax, rightMax);
     }
 }

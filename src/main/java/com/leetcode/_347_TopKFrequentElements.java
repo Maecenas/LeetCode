@@ -39,8 +39,6 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 class _347_TopKFrequentElements {
 
-    //Array, Hash Table, Divide and Conquer, Sorting, Heap, Bucket Sort, Counting, Quickselect.
-
     /**
      * O(nlogk), O(n)
      * minHeap
